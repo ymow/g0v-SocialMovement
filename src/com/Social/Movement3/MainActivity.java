@@ -17,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends FragmentActivity {
-	final String[] menuEntries = { "LiveNote","AlarmPoolFragment","Friends" };
+	final String[] menuEntries = { "LiveNote","LiveVideo","Friends" };
 	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.AlarmPoolFragment","com.Social.Movement3.Friends" };
 	private ActionBarDrawerToggle drawerToggle;
 
