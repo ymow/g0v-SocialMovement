@@ -16,6 +16,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.parse.PushService;
+
 public class MainActivity extends FragmentActivity {
 	final String[] menuEntries = { "LiveNote","LiveVideo","Friends" };
 	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.AlarmPoolFragment","com.Social.Movement3.Friends" };
@@ -25,6 +27,7 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+//		PushService.setDefaultPushCallback(this, MainActivity.class);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), android.R.layout.simple_list_item_1,
 				menuEntries);

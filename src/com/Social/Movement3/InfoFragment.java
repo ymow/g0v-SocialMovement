@@ -19,5 +19,6 @@ public class InfoFragment extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		return inflater.inflate(R.layout.infofragment, container, false);
+
 	}
 }
