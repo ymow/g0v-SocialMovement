@@ -17,8 +17,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.ProgressDialog;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.sax.RootElement;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,25 +28,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class LiveNote extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
 	   private String JSONString;
 	   String feedUrl = "http://congress-text-live.herokuapp.com/json/";
-		ListView videoList;
-		ArrayList<String> videoArrayList = new ArrayList<String>();
-		ArrayAdapter<String> videoAdapter;
+		ListView NoteList;
+		ArrayList<String> noteArrayList = new ArrayList<String>();
+		ArrayAdapter<String> noteAdapter;
 		LiveNote context;
+ 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
 		View rootView = inflater.inflate(R.layout.livenote, container, false);
 //		  URL url = new URL("http://congress-text-live.herokuapp.com/json/");
-		Log.d("d","oncreatte");			
+		Log.d("d","on create");			
+//		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		context = this;
-		videoList = (ListView) rootView.findViewById(R.id.videoList);
-		videoAdapter = new ArrayAdapter<String>(getActivity(), R.layout.video_list_item, videoArrayList);
-		videoList.setAdapter(videoAdapter);
-		
+		NoteList = (ListView) rootView.findViewById(R.id.LiveNoteList);
+		noteAdapter = new ArrayAdapter<String>(getActivity(), R.layout.news_list_item, noteArrayList);
+		NoteList.setAdapter(noteAdapter);
+
 		VideoListTask loaderTask = new VideoListTask();
 		loaderTask.execute();
 		
@@ -71,7 +76,7 @@ public class LiveNote extends Fragment {
 		{
 			HttpClient client = new DefaultHttpClient();
 			HttpGet getRequest = new HttpGet(feedUrl);
-			
+			Log.d("d","httpClient");	
 			try 
 			{
 				HttpResponse responce = client.execute(getRequest);
@@ -87,6 +92,7 @@ public class LiveNote extends Fragment {
 				BufferedReader reader = new BufferedReader(new InputStreamReader(jsonStream));
 				StringBuilder builder = new StringBuilder();
 				String line;
+
 				while((line = reader.readLine())!=null)
 				{
 					builder.append(line);
@@ -117,8 +123,8 @@ public class LiveNote extends Fragment {
 //					Log.d("location",news.getString("location"));
 //					Log.d("content",news.getString("content"));
 //					String location = new JSONObject(jsonData).getString("location");
-					videoArrayList.add(news.getString("time")+news.getString("location"));
-					videoArrayList.add(news.getString("content"));
+					noteArrayList.add(news.getString("time")+"  "+news.getString("location"));
+					noteArrayList.add(news.getString("content"));
 				}
 				
 				
@@ -145,8 +151,9 @@ public class LiveNote extends Fragment {
 		@Override
 		protected void onPostExecute(Void result) {
 			dialog.dismiss();
-			videoAdapter.notifyDataSetChanged();
+			noteAdapter.notifyDataSetChanged();
 			super.onPostExecute(result);
 		}
-	}
+	}	
+	
 }

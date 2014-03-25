@@ -2,7 +2,7 @@
 <resources>
 
 
-  <string name="app_name">FUSE01126</string>
+  <string name="app_name">g0v 臨時政府</string>
     <string-array name="MenuList">
     
         <item>Credit</item>
@@ -21,6 +21,7 @@
     <string name="action_websearch">Web search</string>
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
     <string name="action_settings">setting</string>
+ 	<string name="menu_share">share</string>
     
 </resources>
 <!--

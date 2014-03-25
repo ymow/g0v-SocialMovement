@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.Social.Movement3"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -10,12 +10,13 @@
 
     <application
         android:allowBackup="true"
-            android:name="com.Social.Movement3.ParseApplication"
+        android:name="com.Social.Movement3.ParseApplication"
+		android:hardwareAccelerated ="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+         android:theme="@android:style/Theme.Holo.NoActionBar" >
         <activity
-            android:name="com.Social.Movement3.MainActivity"
+            android:name="com.Social.Movement3.Splash"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+		<activity
+		 android:name="com.Social.Movement3.MainActivity"
+		 android:label="@string/app_name"
+		 android:theme="@style/Theme.Sunflower"> >
+		</activity>       
 <!--         Parse push Notification -->
 		       <service android:name="com.parse.PushService" />
 				<receiver android:name="com.parse.ParseBroadcastReceiver">

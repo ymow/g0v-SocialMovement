@@ -1,6 +1,7 @@
 package com.Social.Movement3;
 
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -15,14 +16,18 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import com.parse.PushService;
+import android.widget.ShareActionProvider;
 
 public class MainActivity extends FragmentActivity {
-	final String[] menuEntries = { "LiveNote","LiveVideo","Friends" };
-	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.AlarmPoolFragment","com.Social.Movement3.Friends" };
+	final String[] menuEntries = { "現場文字轉播","English Transcript","English Live","議場內 樓上", "議場內 樓上（Apple)",
+			"議場內 樓下（五六）","議場內 樓下（音地）","青島東 北側（g0v）","濟南路 機動（g0v）","濟南路 南測","議會外(Apple)"};
+	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.EnglishTranscript",
+			"com.Social.Movement3.vEnglish","com.Social.Movement3.vly2f","com.Social.Movement3.vly2fApple", 
+			"com.Social.Movement3.vly1f56","com.Social.Movement3.vly1fMusic","com.Social.Movement3.lyOutIslandNorthg0v",
+			"com.Social.Movement3.lyOutIsGSouthg0v","com.Social.Movement3.lyOutIsGSouth2","com.Social.Movement3.lyOutApple"};
 	private ActionBarDrawerToggle drawerToggle;
-
+	 private ShareActionProvider mShareActionProvider;
+	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,7 +75,8 @@ public class MainActivity extends FragmentActivity {
 			}
 		});
 		FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-		 tx.replace(R.id.content_frame,Fragment.instantiate(MainActivity.this, fragments[1]));
+		//Screen Start
+		 tx.replace(R.id.content_frame,Fragment.instantiate(MainActivity.this, fragments[0]));
 		tx.commit();
 	}
 
@@ -98,7 +104,36 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
+		 // Locate MenuItem with ShareActionProvider
+	    MenuItem item = menu.findItem(R.id.menu_share);
+
+//	    // Fetch and store ShareActionProvider
+	    mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.menu_share).getActionProvider();
+	    mShareActionProvider.setShareIntent(getDefaultShareIntent());
+
 		return true;
 	}
 
+	private Intent getDefaultShareIntent() {
+		// TODO Auto-generated method stub
+		  String playStoreLink = "https://play.google.com/store/apps/details?id=" +
+  		        getPackageName();
+  		String yourShareText = "Pray for Taiwan, Build from http://g0v.toady， "+" Install this app " + playStoreLink;
+
+		 Intent intent = new Intent(Intent.ACTION_SEND);
+//	        intent.setComponent(new ComponentName("jp.naver.line.android",
+//	                "com.facebook.katana"));
+	        intent.setType("text/plain"); 
+	        intent.putExtra(Intent.EXTRA_SUBJECT, "跟我一起到g0v關注黑箱服貿協議");
+	        intent.putExtra(Intent.EXTRA_TEXT, yourShareText);
+	        return intent;
+	     
+	}
+
+	// Call to update the share intent
+	private void setShareIntent(Intent shareIntent) {
+	    if (mShareActionProvider != null) {
+	        mShareActionProvider.setShareIntent(shareIntent);
+	    }
+	}
 }
