@@ -16,6 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.Social.Movement3.R.color;
+
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -27,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LiveNote extends Fragment {
@@ -124,8 +127,17 @@ public class LiveNote extends Fragment {
 //					Log.d("location",news.getString("location"));
 //					Log.d("content",news.getString("content"));
 //					String location = new JSONObject(jsonData).getString("location");
-					noteArrayList.add(news.getString("time")+"  "+news.getString("location"));
-					noteArrayList.add(news.getString("content"));
+//					System.out.println(b.indexOf('a', 10));
+//					int Time = news.getString("time").indexOf("\"", i);
+					String Content = news.getString("content");
+					String content1 = Content.replace("\"","");
+					String content2 = content1.replace("[", "");
+					String content3 = content2.replace("]", "");
+//					TextView txt3 = null  ;
+//					txt3.setText(content3);
+//					txt3.setTextColor(color.pink);
+					noteArrayList.add(news.getString("time").replace("\"", "")+" "+news.getString("location").replace("\"", ""));
+					noteArrayList.add(content3);
 				}
 				
 				

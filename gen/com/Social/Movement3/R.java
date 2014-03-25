@@ -97,17 +97,18 @@ public final class R {
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int bigcardbottom=0x7f030001;
-        public static final int englishtranscript=0x7f030002;
-        public static final int friendslist=0x7f030003;
-        public static final int infofragment=0x7f030004;
-        public static final int livenote=0x7f030005;
-        public static final int livevideo=0x7f030006;
-        public static final int news_list_item=0x7f030007;
-        public static final int profilefragment=0x7f030008;
-        public static final int slidemenu=0x7f030009;
-        public static final int splash=0x7f03000a;
-        public static final int video_list_item=0x7f03000b;
-        public static final int webviewlive=0x7f03000c;
+        public static final int border=0x7f030002;
+        public static final int englishtranscript=0x7f030003;
+        public static final int friendslist=0x7f030004;
+        public static final int infofragment=0x7f030005;
+        public static final int livenote=0x7f030006;
+        public static final int livevideo=0x7f030007;
+        public static final int news_list_item=0x7f030008;
+        public static final int profilefragment=0x7f030009;
+        public static final int slidemenu=0x7f03000a;
+        public static final int splash=0x7f03000b;
+        public static final int video_list_item=0x7f03000c;
+        public static final int webviewlive=0x7f03000d;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
