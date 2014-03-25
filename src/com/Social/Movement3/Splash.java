@@ -38,7 +38,7 @@ private boolean isNetworkAvailable() {
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    setContentView(R.layout.englishtranscript);
+    setContentView(R.layout.splash);
     Boolean b;
     b=isNetworkAvailable();  //true if connection,  false if not
 
@@ -57,16 +57,7 @@ public void onCreate(Bundle savedInstanceState) {
                    System.exit(0);
                }
            }).start();
-    	   WebView englishtransWebView=(WebView)findViewById(R.id.EnglishTransWebView);
-			  WebSettings websettings = englishtransWebView.getSettings();  
-		        websettings.setSupportZoom(true);  
-		        websettings.setBuiltInZoomControls(false);   
-//		        englishtransWebView = (ProgressWebView) rootView.findViewById(R.id.mWebView);
-		        
-		        websettings.setJavaScriptEnabled(true);  	         
-		        englishtransWebView.setWebViewClient(new WebViewClient());  
-//		        englishtransWebView.loadUrl("file:///android_asset/index.html");
-		        englishtransWebView.loadUrl("http://democracytw.herokuapp.com");  
+
 		    
    }else{
 	   

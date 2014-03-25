@@ -90,12 +90,11 @@ public final class R {
         public static final int adView2=0x7f0b0009;
         public static final int content_frame=0x7f0b0001;
         public static final int drawer_layout=0x7f0b0000;
-        public static final int g0vicon=0x7f0b0012;
         public static final int left_drawer=0x7f0b0002;
         public static final int mWebView=0x7f0b000a;
-        public static final int menu_share=0x7f0b0014;
+        public static final int menu_share=0x7f0b0013;
         public static final int pager=0x7f0b0003;
-        public static final int webviewLive=0x7f0b0013;
+        public static final int webviewLive=0x7f0b0012;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

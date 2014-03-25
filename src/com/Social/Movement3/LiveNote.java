@@ -17,10 +17,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.ProgressDialog;
-import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.sax.RootElement;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class LiveNote extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
@@ -52,13 +50,24 @@ public class LiveNote extends Fragment {
 
 		VideoListTask loaderTask = new VideoListTask();
 		loaderTask.execute();
-		
+		final Handler handler = new Handler();
+		handler.postDelayed( new Runnable() {
+
+		    @Override
+		    public void run() {
+		    	noteAdapter.notifyDataSetChanged();
+		        handler.postDelayed( this, 60 * 1000 );
+				VideoListTask loaderTask = new VideoListTask();
+				loaderTask.execute();
+		    }
+		}, 60 * 1000 );
 		
 	//	dummyTextView.setText(Integer.toString(getArguments().getInt(
 	//			ARG_PAGER_NUMBER)));
 		return rootView;
 		
 	}
+	
 	public class VideoListTask extends AsyncTask<Void, Void, Void>{
 
 		ProgressDialog dialog;
@@ -152,6 +161,7 @@ public class LiveNote extends Fragment {
 		protected void onPostExecute(Void result) {
 			dialog.dismiss();
 			noteAdapter.notifyDataSetChanged();
+
 			super.onPostExecute(result);
 		}
 	}	
