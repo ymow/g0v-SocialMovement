@@ -1,13 +1,11 @@
 package com.Social.Movement3;
  
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -26,7 +24,7 @@ public class lyOutIslandNorthg0v extends Fragment {
 //		        websettings.setJavaScriptEnabled(true);  	         
 		        englishtransWebView.setWebViewClient(new WebViewClient());  
 //		        englishtransWebView.loadUrl("file:///android_asset/index.html");
-		        englishtransWebView.loadUrl("http://www.youtube.com/embed/vdJGHBnVGzg");  
+		        englishtransWebView.loadUrl("https://www.youtube.com/watch?v=Bh3T1YpOBeI");  
 		        
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");

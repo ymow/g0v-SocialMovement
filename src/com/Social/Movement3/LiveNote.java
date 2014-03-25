@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class LiveNote extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
@@ -48,19 +49,9 @@ public class LiveNote extends Fragment {
 		noteAdapter = new ArrayAdapter<String>(getActivity(), R.layout.news_list_item, noteArrayList);
 		NoteList.setAdapter(noteAdapter);
 
-		VideoListTask loaderTask = new VideoListTask();
+		final VideoListTask loaderTask = new VideoListTask();
 		loaderTask.execute();
-		final Handler handler = new Handler();
-		handler.postDelayed( new Runnable() {
-
-		    @Override
-		    public void run() {
-		    	noteAdapter.notifyDataSetChanged();
-		        handler.postDelayed( this, 60 * 1000 );
-				VideoListTask loaderTask = new VideoListTask();
-				loaderTask.execute();
-		    }
-		}, 60 * 1000 );
+		
 		
 	//	dummyTextView.setText(Integer.toString(getArguments().getInt(
 	//			ARG_PAGER_NUMBER)));
@@ -74,6 +65,7 @@ public class LiveNote extends Fragment {
 		@Override
 		protected void onPreExecute() 
 		{
+//			Toast.makeText(getActivity(), "Loading...", Toast.LENGTH_SHORT).show();
 			dialog = new ProgressDialog(getActivity());
 			dialog.setTitle("Loading ..");
 			dialog.show();
@@ -164,6 +156,24 @@ public class LiveNote extends Fragment {
 
 			super.onPostExecute(result);
 		}
+	}
+
+	@Override
+	public void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		final Handler handler = new Handler();
+		handler.postDelayed( new Runnable() {
+
+		    @Override
+		    public void run() {
+		    	noteAdapter.notifyDataSetChanged();
+		        handler.postDelayed( this, 60 * 1000 );
+				VideoListTask loaderTask = new VideoListTask();
+				loaderTask.execute();
+				Log.d("d","+1");
+		    }
+		}, 60 * 1000 );
 	}	
 	
 }

@@ -18,13 +18,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
 
+import com.flurry.android.FlurryAgent;
+
 public class MainActivity extends FragmentActivity {
-	final String[] menuEntries = { "現場文字轉播","English Transcript","English Live","議場內 樓上", "議場內 樓上（Apple)",
-			"議場內 樓下（五六）","議場內 樓下（音地）","青島東 北側（g0v）","濟南路 機動（g0v）","濟南路 南測","議會外(Apple)"};
-	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.EnglishTranscript",
-			"com.Social.Movement3.vEnglish","com.Social.Movement3.vly2f","com.Social.Movement3.vly2fApple", 
-			"com.Social.Movement3.vly1f56","com.Social.Movement3.vly1fMusic","com.Social.Movement3.lyOutIslandNorthg0v",
-			"com.Social.Movement3.lyOutIsGSouthg0v","com.Social.Movement3.lyOutIsGSouth2","com.Social.Movement3.lyOutApple"};
+	final String[] menuEntries = { "現場文字轉播","English Transcript","關於g0v"};
+//	,"English Live","議場內 樓上", "議場內 樓上（Apple)",
+//	"議場內 樓下（五六）","議場內 樓下（音地）","青島東 北側（g0v）","濟南路 機動（g0v）","濟南路 南測","議會外(Apple)"
+	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.EnglishTranscript","com.Social.Movement3.About"
+			};
+//	"com.Social.Movement3.vEnglish","com.Social.Movement3.vly2f","com.Social.Movement3.vly2fApple", 
+//	"com.Social.Movement3.vly1f56","com.Social.Movement3.vly1fMusic","com.Social.Movement3.lyOutIslandNorthg0v",
+//	"com.Social.Movement3.lyOutIsGSouthg0v","com.Social.Movement3.lyOutIsGSouth2","com.Social.Movement3.lyOutApple"
 	private ActionBarDrawerToggle drawerToggle;
 	 private ShareActionProvider mShareActionProvider;
 	 
@@ -136,4 +140,16 @@ public class MainActivity extends FragmentActivity {
 	        mShareActionProvider.setShareIntent(shareIntent);
 	    }
 	}
+//    public void onStart()
+//    {
+//       super.onStart();
+//       FlurryAgent.onStartSession(this, "XFSDYMVRWPS72Z595YZY");
+//       // your code
+//    }
+//    public void onStop()
+//    {
+//       super.onStop();
+//       FlurryAgent.onEndSession(this);
+//       // your code
+//    }	
 }
