@@ -99,6 +99,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (drawerToggle.onOptionsItemSelected(item)) {
+ 
 			return true;
 		}
 
@@ -131,7 +132,8 @@ public class MainActivity extends FragmentActivity {
 	        intent.putExtra(Intent.EXTRA_SUBJECT, "跟我一起到g0v關注黑箱服貿協議");
 	        intent.putExtra(Intent.EXTRA_TEXT, yourShareText);
 	        return intent;
-	     
+	       
+
 	}
 
 	// Call to update the share intent
@@ -140,6 +142,18 @@ public class MainActivity extends FragmentActivity {
 	        mShareActionProvider.setShareIntent(shareIntent);
 	    }
 	}
+//	@Override
+//    public void onStart() {
+//        super.onStart();
+//        // The rest of your onStart() code.
+//        EasyTracker.getInstance(this).activityStart(this);  // Add this method.
+//	}
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        // The rest of your onStop() code.
+//        EasyTracker.getInstance(this).activityStop(this);  // Add this method.
+//}  
 //    public void onStart()
 //    {
 //       super.onStart();
@@ -151,5 +165,6 @@ public class MainActivity extends FragmentActivity {
 //       super.onStop();
 //       FlurryAgent.onEndSession(this);
 //       // your code
-//    }	
+//    }
+
 }
