@@ -2,6 +2,7 @@ package com.Social.Movement3;
  
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,9 @@ public class About extends Fragment {
 		        englishtransWebView.setWebViewClient(new WebViewClient());  
 //		        englishtransWebView.loadUrl("file:///android_asset/index.html");
 		        englishtransWebView.loadUrl("http://g0v.asia");  
-		        
+		        FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
+//				 ab.setTitle("My Title");
+				 ab.setTitle("g0v");
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");
 		   

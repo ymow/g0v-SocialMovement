@@ -18,7 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
 
-import com.flurry.android.FlurryAgent;
+import com.parse.ParseInstallation;
+import com.parse.PushService;
 
 public class MainActivity extends FragmentActivity {
 	final String[] menuEntries = { "現場文字轉播","English Transcript","關於g0v"};
@@ -36,7 +37,10 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-//		PushService.setDefaultPushCallback(this, MainActivity.class);
+		PushService.setDefaultPushCallback(this, MainActivity.class);
+		// Save the current Installation to Parse.
+		ParseInstallation.getCurrentInstallation().saveInBackground();
+		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), android.R.layout.simple_list_item_1,
 				menuEntries);

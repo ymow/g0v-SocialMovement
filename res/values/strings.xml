@@ -2,7 +2,7 @@
 <resources>
 
 
-  <string name="app_name">g0v 臨時政府</string>
+  <string name="app_name">佔領立法院</string>
     <string-array name="MenuList">
     
         <item>Credit</item>
