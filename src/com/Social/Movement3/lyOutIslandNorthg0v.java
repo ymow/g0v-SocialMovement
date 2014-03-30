@@ -24,7 +24,7 @@ public class lyOutIslandNorthg0v extends Fragment {
 //		        websettings.setJavaScriptEnabled(true);  	         
 		        englishtransWebView.setWebViewClient(new WebViewClient());  
 //		        englishtransWebView.loadUrl("file:///android_asset/index.html");
-		        englishtransWebView.loadUrl("https://www.youtube.com/watch?v=Bh3T1YpOBeI");  
+		        englishtransWebView.loadUrl("https://www.youtube.com/watch?v=T2yJrTP-Vpo");  
 		        
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");

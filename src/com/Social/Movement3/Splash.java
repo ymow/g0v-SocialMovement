@@ -3,6 +3,8 @@ package com.Social.Movement3;
 
  
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -11,8 +13,11 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Splash extends Activity {
@@ -21,6 +26,9 @@ protected int _splashTime = 3000; // time to display the splash screen in ms
 String STORE_NAME = "UserID"; 
 String UserID = null;
  
+private Long startTime;
+private Handler handler = new Handler();
+
 private boolean isNetworkAvailable() {
     ConnectivityManager connectivityManager 
           = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -33,6 +41,37 @@ public void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.splash);
     Boolean b;
     b=isNetworkAvailable();  //true if connection,  false if not
+  
+     TextView textViewDay = (TextView) findViewById(R.id.splashtime);
+    Time today = new Time(Time.getCurrentTimezone());
+    today.setToNow();
+    int intValue = Integer.valueOf(today.monthDay);
+    int result = (intValue  - 18 + 1)*24 ;
+    String intresult = String.valueOf(result);
+//    textViewDay.setText(intresult);             // Day of the month (1-31)
+    Log.d("today",today.toString());
+    Calendar c = Calendar.getInstance(); 
+    int hourtoday = c.get(Calendar.HOUR);
+    String totalresult = String.valueOf(result+hourtoday);
+    textViewDay.setText(totalresult);             // Day of the month (1-31)
+//    textViewDay =  (int)textViewDay-18+1;
+//    textViewMonth.setText(today.month + "");              // Month (0-11)
+    //固定要執行的方法
+//    Runnable updateTimer1 = new Runnable() {
+//        public void run() {
+//            final TextView splashtime = (TextView) findViewById(R.id.splashtime);
+//
+//            
+//            Long spentTime = System.currentTimeMillis() - startTime;
+// 
+//            //計算目前已過分鐘數
+//            Long minius = (spentTime/1000)/60;
+//            //計算目前已過秒數
+//            Long seconds = (spentTime/1000) % 60;
+//            splashtime.setText(minius+":"+seconds);
+//            handler.postDelayed(this, 1000);
+//        }
+//    };
 
    if(!b){
        //do accordingly to no-connection

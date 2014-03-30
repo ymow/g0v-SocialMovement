@@ -24,7 +24,7 @@ public class vly1f56 extends Fragment {
 //		        websettings.setJavaScriptEnabled(true);  	         
 		        englishtransWebView.setWebViewClient(new WebViewClient());  
 //		        englishtransWebView.loadUrl("file:///android_asset/index.html");
-		        englishtransWebView.loadUrl("http://www.ustream.tv/channel/13620594");  
+		        englishtransWebView.loadUrl("http://www.ustream.tv/recorded/45532630");  
 		        
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");

@@ -24,7 +24,7 @@ public class lyOutApple extends Fragment {
 //		        websettings.setJavaScriptEnabled(true);  	         
 		        englishtransWebView.setWebViewClient(new WebViewClient());  
 //		        englishtransWebView.loadUrl("file:///android_asset/index.html");
-		        englishtransWebView.loadUrl("https://www.youtube.com/watch?v=-1uSYFG-1vs");  
+		        englishtransWebView.loadUrl("https://www.youtube.com/watch?v=NvoixMU5kXo");  
 		        
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");

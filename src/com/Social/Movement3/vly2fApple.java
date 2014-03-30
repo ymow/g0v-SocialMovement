@@ -24,7 +24,7 @@ public class vly2fApple extends Fragment {
 //		        websettings.setJavaScriptEnabled(true);  	         
 		        englishtransWebView.setWebViewClient(new WebViewClient());  
 //		        englishtransWebView.loadUrl("file:///android_asset/index.html");
-		        englishtransWebView.loadUrl("https://www.youtube.com/watch?v=6anMM8dwq18");  
+		        englishtransWebView.loadUrl("https://www.youtube.com/watch?v=dwmb_MhmnlI");  
 		        
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");

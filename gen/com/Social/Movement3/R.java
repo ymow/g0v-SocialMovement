@@ -278,29 +278,36 @@ containing a value of this type.
         public static final int tab_unselected_sunflower=0x7f020040;
     }
     public static final class id {
+        public static final int CongressOccupied=0x7f06001b;
         public static final int DigitalAlarmTime=0x7f06000c;
         public static final int EnglishTransWebView=0x7f06000e;
         public static final int FriendsList=0x7f06000f;
         public static final int FuseName=0x7f06000a;
         public static final int FuseNameBackground=0x7f060009;
-        public static final int InfoFragment=0x7f060012;
+        public static final int InfoFragment=0x7f060017;
         public static final int LiveNoteList=0x7f060010;
         public static final int LiveVideoList=0x7f060011;
-        public static final int MenuFragment=0x7f060014;
+        public static final int MenuFragment=0x7f060019;
         public static final int ProfileBackground=0x7f06000b;
-        public static final int ProfileFragment=0x7f060013;
+        public static final int ProfileFragment=0x7f060018;
         public static final int RelativeLayout1=0x7f06000d;
         public static final int content_frame=0x7f060006;
         public static final int drawer_layout=0x7f060005;
+        public static final int feed_image=0x7f060012;
+        public static final int feed_text=0x7f060013;
+        public static final int feed_updatetime=0x7f060014;
         public static final int hybrid=0x7f060004;
         public static final int left_drawer=0x7f060007;
-        public static final int menu_share=0x7f060016;
+        public static final int menu_share=0x7f06001d;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int pager=0x7f060008;
+        public static final int rssfeed_listview=0x7f060015;
         public static final int satellite=0x7f060002;
+        public static final int sort=0x7f060016;
+        public static final int splashtime=0x7f06001a;
         public static final int terrain=0x7f060003;
-        public static final int webviewLive=0x7f060015;
+        public static final int webviewLive=0x7f06001c;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
@@ -316,10 +323,13 @@ containing a value of this type.
         public static final int livevideo=0x7f030007;
         public static final int news_list_item=0x7f030008;
         public static final int profilefragment=0x7f030009;
-        public static final int slidemenu=0x7f03000a;
-        public static final int splash=0x7f03000b;
-        public static final int video_list_item=0x7f03000c;
-        public static final int webviewlive=0x7f03000d;
+        public static final int rssfeedadapter_layout=0x7f03000a;
+        public static final int rssfeedreaderactivity=0x7f03000b;
+        public static final int shape=0x7f03000c;
+        public static final int slidemenu=0x7f03000d;
+        public static final int splash=0x7f03000e;
+        public static final int video_list_item=0x7f03000f;
+        public static final int webviewlive=0x7f030010;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
@@ -330,6 +340,7 @@ containing a value of this type.
         public static final int FuseName3=0x7f07001e;
         public static final int action_settings=0x7f070023;
         public static final int action_websearch=0x7f070021;
+        public static final int app_id=0x7f070025;
         public static final int app_name=0x7f07001b;
         public static final int app_not_available=0x7f070022;
         /**   Title for notification shown when GooglePlayServices needs to be

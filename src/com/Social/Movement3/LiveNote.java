@@ -16,7 +16,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -188,5 +187,4 @@ public class LiveNote extends Fragment {
 		    }
 		}, 60 * 1000 );
 	}	
-	
 }

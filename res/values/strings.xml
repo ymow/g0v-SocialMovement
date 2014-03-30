@@ -22,7 +22,7 @@
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
     <string name="action_settings">setting</string>
  	<string name="menu_share">share</string>
-    
+	<string name="app_id">676201322438987</string>    
 </resources>
 <!--
   Copyright 2013 The Android Open Source Project
