@@ -5,7 +5,9 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="/Users/Ymow/Downloads/GoogleAnalyticsServicesAndroid_3.01/libGoogleAnalyticsServices.jar"/>
-	<classpathentry kind="lib" path="/Volumes/lunaold/programfile/Android_MAC/android-sdk-macosx/extras/Analysis/Flurry Android SDK vAndroid 3.3.4/Android 3.3.4/FlurryAnalytics/FlurryAnalytics_3.3.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/Ymow/Downloads/GoogleAnalyticsServicesAndroid_3.01/libGoogleAnalyticsServices.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Volumes/lunaold/programfile/Android_MAC/android-sdk-macosx/extras/Analysis/Flurry Android SDK vAndroid 3.3.4/Android 3.3.4/FlurryAnalytics/FlurryAnalytics_3.3.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Volumes/lunaold/programfile/Android_MAC/android-sdk-macosx/extras/Parse-1.4.1/Parse-1.4.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Volumes/lunaold/programfile/Android_MAC/android-sdk-macosx/extras/android/support/v4/android-support-v4.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

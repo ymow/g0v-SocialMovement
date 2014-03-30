@@ -1,7 +1,5 @@
 package com.Social.Movement3;
 
-import com.parse.Parse;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -10,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +18,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
 
+import com.facebook.Session;
+import com.flurry.android.FlurryAgent;
+import com.parse.ParseInstallation;
+import com.parse.PushService;
+
  
 public class MainActivity extends FragmentActivity {
 	final String[] menuEntries = { "現場文字轉播","English Transcript","關於g0v","330 Map",
@@ -27,7 +31,7 @@ public class MainActivity extends FragmentActivity {
 //	,"English Live","議場內 樓上", "議場內 樓上（Apple)",
 //	"議場內 樓下（五六）","議場內 樓下（音地）","青島東 北側（g0v）","濟南路 機動（g0v）","濟南路 南測","議會外(Apple)"
 	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.EnglishTranscript","com.Social.Movement3.About"
-			,"com.Social.Movement3.map330"
+			,"com.Social.Movement3.NTUEforum"
 			,	"com.Social.Movement3.vEnglish","com.Social.Movement3.vly2f","com.Social.Movement3.vly2fApple", 
 			"com.Social.Movement3.vly1f56","com.Social.Movement3.vly1fMusic","com.Social.Movement3.lyOutIslandNorthg0v",
 			"com.Social.Movement3.lyOutIsGSouthg0v","com.Social.Movement3.lyOutIsGSouth2","com.Social.Movement3.lyOutApple"
@@ -43,16 +47,15 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-//		Parse.initialize(this, "DZ29rJZ1UTIYLGHDKNLnYgreP5j05smAOfB2Hv59", "zUYERFkwzcWuOWWGki0Cw1VoajpJAJEfmx00jWaS");
-
-//		PushService.setDefaultPushCallback(this, MainActivity.class);
+	 
+		PushService.setDefaultPushCallback(this, MainActivity.class);
 		// Save the current Installation to Parse.
-//		ParseInstallation.getCurrentInstallation().saveInBackground();
-//		Session session = Session.getActiveSession();
-//		if (session != null && session.getState().isOpened()){
-//		     Log.i("sessionToken", session.getAccessToken());
-//		     Log.i("sessionTokenDueDate", session.getExpirationDate().toLocaleString());
-//		}
+		ParseInstallation.getCurrentInstallation().saveInBackground();
+		Session session = Session.getActiveSession();
+		if (session != null && session.getState().isOpened()){
+		     Log.i("sessionToken", session.getAccessToken());
+		     Log.i("sessionTokenDueDate", session.getExpirationDate().toLocaleString());
+		}
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), android.R.layout.simple_list_item_1,
 				menuEntries);
@@ -170,17 +173,17 @@ public class MainActivity extends FragmentActivity {
 //        // The rest of your onStop() code.
 //        EasyTracker.getInstance(this).activityStop(this);  // Add this method.
 //}  
-//    public void onStart()
-//    {
-//       super.onStart();
-//       FlurryAgent.onStartSession(this, "XFSDYMVRWPS72Z595YZY");
-//       // your code
-//    }
-//    public void onStop()
-//    {
-//       super.onStop();
-//       FlurryAgent.onEndSession(this);
-//       // your code
-//    }
+    public void onStart()
+    {
+       super.onStart();
+       FlurryAgent.onStartSession(this, "XFSDYMVRWPS72Z595YZY");
+       // your code
+    }
+    public void onStop()
+    {
+       super.onStop();
+       FlurryAgent.onEndSession(this);
+       // your code
+    }
 
 }

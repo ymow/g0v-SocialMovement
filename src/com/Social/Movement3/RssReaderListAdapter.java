@@ -7,16 +7,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-import org.json.JSONException;
-import org.json.JSONObject;
- 
-import com.rssfeed.helper.RssFeedStructure;
-
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +19,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.rssfeed.helper.RssFeedStructure;
 
 public class RssReaderListAdapter extends ArrayAdapter<RssFeedStructure> {
 	List<RssFeedStructure> imageAndTexts1 =null;

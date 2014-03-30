@@ -29,6 +29,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.facebook.Session;
+
 public class NTUEforum extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
 	   private String JSONString;
@@ -38,6 +40,7 @@ public class NTUEforum extends Fragment {
 		ArrayAdapter<String> noteAdapter;
 		NTUEforum context;
  
+//		NTU-E String http://graph.facebook.com/155846434444584/feed?
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
 		View rootView = inflater.inflate(R.layout.livenote, container, false);
@@ -51,7 +54,14 @@ public class NTUEforum extends Fragment {
 
 		final VideoListTask loaderTask = new VideoListTask();
 		loaderTask.execute();
-		
+		Session session = Session.getActiveSession();
+		if (session != null && session.getState().isOpened()){
+		     Log.i("sessionToken", session.getAccessToken());
+		     Log.i("sessionTokenDueDate", session.getExpirationDate().toLocaleString());
+		}else{
+			 
+		}
+
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
 //		 ab.setTitle("My Title");
 		 ab.setTitle("現場文字轉播");
@@ -169,7 +179,14 @@ public class NTUEforum extends Fragment {
 			super.onPostExecute(result);
 		}
 	}
-
+	 private Session createSession() {
+	        Session activeSession = Session.getActiveSession();
+	        if (activeSession == null || activeSession.getState().isClosed()) {
+	            activeSession = new Session.Builder(getActivity()).setApplicationId("@string/app_id").build();
+	            Session.setActiveSession("676201322438987|kh45RIm5z8KT2K29d5itncGd5fg");
+	        }
+	        return activeSession;
+	    }
 	@Override
 	public void onPause() {
 		// TODO Auto-generated method stub
