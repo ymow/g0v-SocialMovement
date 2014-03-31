@@ -32,17 +32,19 @@
  	    android:layout_height="wrap_content"
  	    android:layout_alignBaseline="@+id/splashtime"
  	    android:layout_alignBottom="@+id/splashtime"
- 	    android:layout_alignRight="@+id/CongressOccupied"
- 		    android:textColor="@color/lightyellow"
+ 	    android:layout_marginLeft="16dp"
+ 	    android:layout_toRightOf="@+id/splashtime"
  	    android:text="th"
- 	    android:textAppearance="?android:attr/textAppearanceLarge" />
+ 	    android:textSize="20sp"
+ 	    android:textAppearance="?android:attr/textAppearanceLarge"
+ 	    android:textColor="@color/lightyellow" />
 
  	<TextView
  	    android:id="@+id/textView2"
  	    android:layout_width="wrap_content"
  	    android:layout_height="wrap_content"
- 	    android:layout_below="@+id/textView1"
- 	    android:layout_centerHorizontal="true"
+ 	    android:layout_alignRight="@+id/CongressOccupied"
+ 	    android:layout_below="@+id/splashtime"
  	    android:text="hour"
  	    android:textAppearance="?android:attr/textAppearanceLarge" />
  

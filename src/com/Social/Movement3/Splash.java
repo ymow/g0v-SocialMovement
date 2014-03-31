@@ -50,7 +50,7 @@ public void onCreate(Bundle savedInstanceState) {
     int intValuemonth = Integer.valueOf(today.month);
     int intValue = Integer.valueOf(today.monthDay);
     int intValue2 = Integer.valueOf(today.hour);
-    int result = (intValue-1) *24 + intValue2 +350;
+    int result = (intValue-1) *24 + intValue2 + 1 +344;
     String intresult = String.valueOf(result);
 //    textViewDay.setText(intresult);             // Day of the month (1-31)
     Log.d("today",today.toString());
@@ -80,7 +80,7 @@ public void onCreate(Bundle savedInstanceState) {
    if(!b){
        //do accordingly to no-connection
 	     Log.d("no network","no network");
-    	 Toast.makeText(Splash.this, "������������������������������������������", Toast.LENGTH_LONG).show();
+    	 Toast.makeText(Splash.this, "網路連不上喲，請檢查網路連線", Toast.LENGTH_LONG).show();
 //    	 System.exit(0);
     	   new Thread(new Runnable() {
                @Override
