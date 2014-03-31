@@ -25,12 +25,12 @@ import com.parse.PushService;
 
  
 public class MainActivity extends FragmentActivity {
-	final String[] menuEntries = { "現場文字轉播","English Transcript","NTU E-forum",
+	final String[] menuEntries = { "現場文字轉播","English Transcript","NTU E-forum","Sunflower Movement 太陽花學運",
 			"English Live","關於g0v"};
 //	,"English Live","議場內 樓上", "議場內 樓上（Apple)",
 //	"議場內 樓下（五六）","議場內 樓下（音地）","青島東 北側（g0v）","濟南路 機動（g0v）","濟南路 南測","議會外(Apple)"
 	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.EnglishTranscript"
-			,"com.Social.Movement3.NTUEforum"
+			,"com.Social.Movement3.NTUEforum","com.Social.Movement3.SunFlower"
 			,	"com.Social.Movement3.vEnglish","com.Social.Movement3.About"
 			};
 //	"com.Social.Movement3.vEnglish","com.Social.Movement3.vly2f","com.Social.Movement3.vly2fApple", 

@@ -33,6 +33,7 @@
  	    android:layout_alignBaseline="@+id/splashtime"
  	    android:layout_alignBottom="@+id/splashtime"
  	    android:layout_alignRight="@+id/CongressOccupied"
+ 		    android:textColor="@color/lightyellow"
  	    android:text="th"
  	    android:textAppearance="?android:attr/textAppearanceLarge" />
 

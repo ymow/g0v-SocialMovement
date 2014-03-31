@@ -45,20 +45,20 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.model.GraphObject;
 
-public class NTUEforum extends Fragment {
+public class SunFlower extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
 	   private String JSONString;
-	   String feedUrl = "https://www.facebook.com/feeds/page.php?format=json&id=155846434444584";
+	   String feedUrl = "https://www.facebook.com/feeds/page.php?format=json&id=319460198179142";
 		ListView NTUEforumList;
 		ArrayList<String> NTUEforumArrayList = new ArrayList<String>();
 		ArrayAdapter<String> NTUEforumAdapter;
-		NTUEforum context;
-//		private Session.StatusCallback callback = new Session.StatusCallback() {
-//		    @Override
-//		    public void call(Session session, SessionState state, Exception exception) {
-//		        onSessionStateChange(session, state, exception);
-//		    }
-//		};
+		SunFlower context;
+		private Session.StatusCallback callback = new Session.StatusCallback() {
+		    @Override
+		    public void call(Session session, SessionState state, Exception exception) {
+		        onSessionStateChange(session, state, exception);
+		    }
+		};
 //		NTU-E String http://graph.facebook.com/155846434444584/feed?
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
@@ -170,7 +170,8 @@ public class NTUEforum extends Fragment {
 					 String time2 = time1.substring(0, index1);
 					 
 					String Content = news.getString("content");
-					String content1 = Content.replace("\"","");
+					String content0 = Content.replace("&quot;","\"");
+					String content1 = content0.replace("\"","");
 					String content2 = content1.replace("[", "");
 					String content3 = content2.replace("]", "");
 					String content4 = content3.replace("<br />", "");
@@ -249,5 +250,29 @@ public class NTUEforum extends Fragment {
 //		    }
 //		}, 60 * 1000 );
 	}	
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    super.onActivityResult(requestCode, resultCode, data);
+	    Session.getActiveSession().onActivityResult(getActivity(), requestCode,
+	            resultCode, data);
+	}
+	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
+		  if (state.isOpened()) {
+		        Log.i("TAG", "Logged in...");
+		        Log.e("sessionopened", "true");
 
+	            
+		    } else if (state.isClosed()) {
+		        Log.i("TAG", "Logged out...");
+		        Log.d("TAG", session.toString());
+		         session = Session.getActiveSession();
+		        Request request = Request.newGraphPathRequest(session, "155846434444584", null);
+		        com.facebook.Response response = Request.executeAndWait(request);
+//		        session = 676201322438987|kh45RIm5z8KT2K29d5itncGd5fg;
+		    }
+		    else
+		        Log.i("TAG", session.toString());
+		
+	}
 }
