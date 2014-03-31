@@ -1,5 +1,7 @@
 package com.Social.Movement3;
 
+import java.util.HashMap;
+
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -8,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,24 +19,29 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
 
-import com.facebook.Session;
 import com.flurry.android.FlurryAgent;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 import com.parse.ParseInstallation;
 import com.parse.PushService;
 
  
 public class MainActivity extends FragmentActivity {
-	final String[] menuEntries = { "現場文字轉播","English Transcript","NTU E-forum","Sunflower Movement 太陽花學運",
+	final String[] menuEntries = { "現場文字轉播","English Transcript","台大新聞E論壇",
 			"English Live","關於g0v"};
-//	,"English Live","議場內 樓上", "議場內 樓上（Apple)",
+//	,"English Live","議場內 樓上", "議場內 樓上（Apple)",,"Sunflower Movement 太陽花學運"
 //	"議場內 樓下（五六）","議場內 樓下（音地）","青島東 北側（g0v）","濟南路 機動（g0v）","濟南路 南測","議會外(Apple)"
 	final String[] fragments = { "com.Social.Movement3.LiveNote","com.Social.Movement3.EnglishTranscript"
-			,"com.Social.Movement3.NTUEforum","com.Social.Movement3.SunFlower"
+			,"com.Social.Movement3.NTUEforum"
 			,	"com.Social.Movement3.vEnglish","com.Social.Movement3.About"
 			};
 //	"com.Social.Movement3.vEnglish","com.Social.Movement3.vly2f","com.Social.Movement3.vly2fApple", 
 //	"com.Social.Movement3.vly1f56","com.Social.Movement3.vly1fMusic","com.Social.Movement3.lyOutIslandNorthg0v",
 //	"com.Social.Movement3.lyOutIsGSouthg0v","com.Social.Movement3.lyOutIsGSouth2","com.Social.Movement3.lyOutApple"
+//	,"com.Social.Movement3.SunFlower"
 	private ActionBarDrawerToggle drawerToggle;
 	 private ShareActionProvider mShareActionProvider;
 	 
@@ -47,11 +53,17 @@ public class MainActivity extends FragmentActivity {
 		PushService.setDefaultPushCallback(this, MainActivity.class);
 		// Save the current Installation to Parse.
 		ParseInstallation.getCurrentInstallation().saveInBackground();
-		Session session = Session.getActiveSession();
-		if (session != null && session.getState().isOpened()){
-		     Log.i("sessionToken", session.getAccessToken());
-		     Log.i("sessionTokenDueDate", session.getExpirationDate().toLocaleString());
-		}
+		//		google analysis
+		Tracker tracker = GoogleAnalytics.getInstance(this).getTracker("UA-49389941-1");
+
+		HashMap<String, String> hitParameters = new HashMap<String, String>();
+		hitParameters.put(Fields.SCREEN_NAME, "Home Screen");
+		tracker.send(hitParameters);
+		
+		//		Flurry
+
+		FlurryAgent.logEvent("Home Screen");
+
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActionBar()
 				.getThemedContext(), android.R.layout.simple_list_item_1,
 				menuEntries);
@@ -114,7 +126,16 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (drawerToggle.onOptionsItemSelected(item)) {
- 
+			// This event will also be sent with &cd=Home%20Screen.
+			Tracker tracker = GoogleAnalytics.getInstance(this).getTracker("UA-49389941-1");
+
+			tracker.set(Fields.SCREEN_NAME, "Menu");
+			tracker.send(MapBuilder
+			    .createEvent("UX", "touch", "menuButton", null)
+			    .build()
+			);
+			   FlurryAgent.logEvent("Menu");
+
 			return true;
 		}
 
@@ -139,6 +160,7 @@ public class MainActivity extends FragmentActivity {
 		  String playStoreLink = "https://play.google.com/store/apps/details?id=" +
   		        getPackageName();
   		String yourShareText = "Pray for Taiwan, Build from http://g0v.toady， "+" Install this app " + playStoreLink;
+  	   FlurryAgent.logEvent("Share");
 
 		 Intent intent = new Intent(Intent.ACTION_SEND);
 //	        intent.setComponent(new ComponentName("jp.naver.line.android",
@@ -147,8 +169,6 @@ public class MainActivity extends FragmentActivity {
 	        intent.putExtra(Intent.EXTRA_SUBJECT, "跟我一起到g0v關注黑箱服貿協議");
 	        intent.putExtra(Intent.EXTRA_TEXT, yourShareText);
 	        return intent;
-	       
-
 	}
 
 	// Call to update the share intent
@@ -173,12 +193,14 @@ public class MainActivity extends FragmentActivity {
     {
        super.onStart();
        FlurryAgent.onStartSession(this, "XFSDYMVRWPS72Z595YZY");
+       EasyTracker.getInstance(this).activityStart(this);  // Add this method.
        // your code
     }
     public void onStop()
     {
        super.onStop();
        FlurryAgent.onEndSession(this);
+       EasyTracker.getInstance(this).activityStop(this);  // Add this method.
        // your code
     }
 

@@ -1,5 +1,8 @@
 package com.Social.Movement3;
  
+import com.flurry.android.FlurryAgent;
+import com.google.analytics.tracking.android.EasyTracker;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -31,8 +34,23 @@ public class EnglishTranscript extends Fragment {
 				 ab.setTitle("English Transcript");
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");
-		   
+		        FlurryAgent.logEvent("EnglishTranscript");
+
 		return rootView;
 		
 	}
+    public void onStart()
+    {
+       super.onStart();
+       FlurryAgent.onStartSession(getActivity(), "XFSDYMVRWPS72Z595YZY");
+       EasyTracker.getInstance(getActivity()).activityStart(getActivity());  // Add this method.
+       // your code
+    }
+    public void onStop()
+    {
+       super.onStop();
+       FlurryAgent.onEndSession(getActivity());
+       EasyTracker.getInstance(getActivity()).activityStop(getActivity());  // Add this method.
+       // your code
+    }
 }

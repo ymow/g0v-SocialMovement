@@ -88,7 +88,7 @@ public class SunFlower extends Fragment {
 
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
 //		 ab.setTitle("My Title");
-		 ab.setTitle("NTU-EForum");
+		 ab.setTitle("SunFlower Movement");
 		 
 	//	dummyTextView.setText(Integer.toString(getArguments().getInt(
 	//			ARG_PAGER_NUMBER)));

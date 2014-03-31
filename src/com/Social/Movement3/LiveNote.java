@@ -16,6 +16,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.flurry.android.FlurryAgent;
+import com.google.analytics.tracking.android.EasyTracker;
+
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -48,6 +51,7 @@ public class LiveNote extends Fragment {
 		NoteList = (ListView) rootView.findViewById(R.id.LiveNoteList);
 		noteAdapter = new ArrayAdapter<String>(getActivity(), R.layout.news_list_item, noteArrayList);
 		NoteList.setAdapter(noteAdapter);
+		   FlurryAgent.logEvent("Load text Live");
 
 		final VideoListTask loaderTask = new VideoListTask();
 		loaderTask.execute();
@@ -198,5 +202,19 @@ public class LiveNote extends Fragment {
 		super.onDestroyView();
  
 	}	
-	
+    public void onStart()
+    {
+       super.onStart();
+       FlurryAgent.onStartSession(getActivity(), "XFSDYMVRWPS72Z595YZY");
+       EasyTracker.getInstance(getActivity()).activityStart(getActivity());  // Add this method.
+       // your code
+    }
+    public void onStop()
+    {
+       super.onStop();
+       FlurryAgent.onEndSession(getActivity());
+       EasyTracker.getInstance(getActivity()).activityStop(getActivity());  // Add this method.
+       // your code
+    }
+
 }

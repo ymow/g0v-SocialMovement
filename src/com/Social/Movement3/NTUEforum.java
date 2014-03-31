@@ -44,6 +44,8 @@ import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.model.GraphObject;
+import com.flurry.android.FlurryAgent;
+import com.google.analytics.tracking.android.EasyTracker;
 
 public class NTUEforum extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
@@ -85,10 +87,11 @@ public class NTUEforum extends Fragment {
 
 		final NTUeTask loaderTask = new NTUeTask();
 		loaderTask.execute();
+		   FlurryAgent.logEvent("NTU E-forum");
 
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
 //		 ab.setTitle("My Title");
-		 ab.setTitle("NTU-EForum");
+		 ab.setTitle("台大新聞E論壇");
 		 
 	//	dummyTextView.setText(Integer.toString(getArguments().getInt(
 	//			ARG_PAGER_NUMBER)));
@@ -249,5 +252,18 @@ public class NTUEforum extends Fragment {
 //		    }
 //		}, 60 * 1000 );
 	}	
-
+    public void onStart()
+    {
+       super.onStart();
+       FlurryAgent.onStartSession(getActivity(), "XFSDYMVRWPS72Z595YZY");
+       EasyTracker.getInstance(getActivity()).activityStart(getActivity());  // Add this method.
+       // your code
+    }
+    public void onStop()
+    {
+       super.onStop();
+       FlurryAgent.onEndSession(getActivity());
+       EasyTracker.getInstance(getActivity()).activityStop(getActivity());  // Add this method.
+       // your code
+    }
 }
