@@ -17,6 +17,8 @@ import android.os.Handler;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,12 +43,14 @@ public void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.splash);
     Boolean b;
     b=isNetworkAvailable();  //true if connection,  false if not
-  
+ 
      TextView textViewDay = (TextView) findViewById(R.id.splashtime);
     Time today = new Time(Time.getCurrentTimezone());
     today.setToNow();
+    int intValuemonth = Integer.valueOf(today.month);
     int intValue = Integer.valueOf(today.monthDay);
-    int result = (intValue  - 18 + 1)*24 ;
+    int intValue2 = Integer.valueOf(today.hour);
+    int result = (intValue-1) *24 + intValue2 +350;
     String intresult = String.valueOf(result);
 //    textViewDay.setText(intresult);             // Day of the month (1-31)
     Log.d("today",today.toString());

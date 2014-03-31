@@ -19,13 +19,13 @@
 
 <resources>
 
-    <style name="Theme.Sunflower" parent="@android:style/Theme.Holo">
+    <style name="Theme.Sunflower" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_sunflower</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Sunflower</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Sunflower</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Sunflower</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Sunflower</item>
-        <item name="android:actionBarStyle">@style/ActionBar.Transparent.Sunflower</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Sunflower</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_sunflower</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_sunflower</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Sunflower</item>
@@ -33,41 +33,41 @@
         
     </style>
 
-    <style name="ActionBar.Solid.Sunflower" parent="@android:style/Widget.Holo.ActionBar.Solid">
+    <style name="ActionBar.Solid.Sunflower" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_background_textured_sunflower</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_sunflower</item>
         <item name="android:backgroundSplit">@drawable/ab_background_textured_sunflower</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Sunflower</item>
     </style>
 
-    <style name="ActionBar.Transparent.Sunflower" parent="@android:style/Widget.Holo.ActionBar">
+    <style name="ActionBar.Transparent.Sunflower" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@drawable/ab_transparent_sunflower</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Sunflower</item>
     </style>
 
-    <style name="PopupMenu.Sunflower" parent="@android:style/Widget.Holo.ListPopupWindow">
+    <style name="PopupMenu.Sunflower" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_sunflower</item>	
     </style>
 
-    <style name="DropDownListView.Sunflower" parent="@android:style/Widget.Holo.ListView.DropDown">
+    <style name="DropDownListView.Sunflower" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_sunflower</item>
     </style>
 
-    <style name="ActionBarTabStyle.Sunflower" parent="@android:style/Widget.Holo.ActionBar.TabView">
+    <style name="ActionBarTabStyle.Sunflower" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_sunflower</item>
     </style>
 
-    <style name="DropDownNav.Sunflower" parent="@android:style/Widget.Holo.Spinner">
+    <style name="DropDownNav.Sunflower" parent="@android:style/Widget.Holo.Light.Spinner">
         <item name="android:background">@drawable/spinner_background_ab_sunflower</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_sunflower</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_sunflower</item>
     </style>
     
-    <style name="ProgressBar.Sunflower" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+    <style name="ProgressBar.Sunflower" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_sunflower</item>
     </style>
     
-    <style name="ActionButton.CloseMode.Sunflower" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
+    <style name="ActionButton.CloseMode.Sunflower" parent="@android:style/Widget.Holo.Light.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_sunflower</item>
     </style>
 

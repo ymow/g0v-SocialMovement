@@ -51,7 +51,7 @@ public class LiveNote extends Fragment {
 
 		final VideoListTask loaderTask = new VideoListTask();
 		loaderTask.execute();
-		
+
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
 //		 ab.setTitle("My Title");
 		 ab.setTitle("現場文字轉播");
@@ -157,7 +157,10 @@ public class LiveNote extends Fragment {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			if (isCancelled()) {
+				cancel(true);
+			}
+	    
 			return null;
 		}
 
@@ -165,8 +168,8 @@ public class LiveNote extends Fragment {
 		protected void onPostExecute(Void result) {
 			dialog.dismiss();
 			noteAdapter.notifyDataSetChanged();
-
 			super.onPostExecute(result);
+ 
 		}
 	}
 
@@ -174,17 +177,26 @@ public class LiveNote extends Fragment {
 	public void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
-		final Handler handler = new Handler();
-		handler.postDelayed( new Runnable() {
+//		final Handler handler = new Handler();
+//		handler.postDelayed( new Runnable() {
+//
+//		    @Override
+//		    public void run() {
+//		    	noteAdapter.notifyDataSetChanged();
+//		        handler.postDelayed( this, 60 * 1000 );
+//				VideoListTask loaderTask = new VideoListTask();
+//				loaderTask.execute();
+//				Log.d("d","+1");
+//		    }
+//		}, 60 * 1000 );
+		 
+	}
 
-		    @Override
-		    public void run() {
-		    	noteAdapter.notifyDataSetChanged();
-		        handler.postDelayed( this, 60 * 1000 );
-				VideoListTask loaderTask = new VideoListTask();
-				loaderTask.execute();
-				Log.d("d","+1");
-		    }
-		}, 60 * 1000 );
+	@Override
+	public void onDestroyView() {
+		// TODO Auto-generated method stub
+		super.onDestroyView();
+ 
 	}	
+	
 }
