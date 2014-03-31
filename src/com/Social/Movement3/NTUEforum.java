@@ -142,24 +142,40 @@ public class NTUEforum extends Fragment {
 				String jsonData = builder.toString();
 //				JSONArray latest = null;
 				JSONObject json = new JSONObject(jsonData);
-				JSONArray entries = json.getJSONArray("entries");
+				JSONArray entries = json.getJSONArray("entries");	 
+//				JSONArray names = json.getJSONArray("author");	 
+//				String NAME = new JSONObject(jsonData).getString("author"); 
 //				String time = new JSONObject(jsonData).getString("time");
 //				String location = new JSONObject(jsonData).getString("location");
 //				String content = new JSONObject(jsonData).getString("content");
 //				JSONArray time = latest.getJSONArray("time");
 //				JSONArray location = latest.getJSONArray("location");
 //				JSONArray content = latest.getJSONArray("content");
- 
+				 
 ////				String mJsonText = EntityUtils.toString(responce.getEntity());
 //				String mTitle = new JSONObject(new JSONObject(mJsonText).getString("latest")).getString("content");
-//
-//				Log.d("d",mTitle);			
+
+//				String Name = new JSONObject(new JSONObject(jsonData).getString("author")).getString("name");
+//				Log.d("NAME",NAME);
+//				Log.d("NAME",Name);
 				Log.d("d","before");			
 				for(int i =0; i<entries.length(); i++)
 				{
 					JSONObject news = entries.getJSONObject(i);
-					System.out.println(i);			
-	
+
+//					String Author = news.getString("author");
+//					System.out.println(Author);		
+//					JSONObject NAMES  = new JSONObject(Author);
+//					String Name = NAMES.getString("name");
+// 					System.out.println(Name);	
+//					JSONArray Name = json.getJSONArray("author");	 
+//					for(int k =0; k<Name.length(); k++)
+//					{
+//						JSONObject NAME = Name.getJSONObject(k);
+//						String names = NAME.getString("name");
+//						System.out.println(names);			
+//					}
+					
 //					Log.d("time",news.getString("time"));
 //					Log.d("location",news.getString("location"));
 //					Log.d("content",news.getString("content"));
@@ -171,7 +187,9 @@ public class NTUEforum extends Fragment {
 					 int index1 = time1.indexOf("+");
 					 Log.d("site",Integer.toString(index1));
 					 String time2 = time1.substring(0, index1);
+ 
 					 
+//						System.out.println(names);		
 					String Content = news.getString("content");
 					String content1 = Content.replace("\"","");
 					String content2 = content1.replace("[", "");
@@ -180,7 +198,7 @@ public class NTUEforum extends Fragment {
 					String content5 = content4.replace("<br/>", "");
 					 int index = content5.indexOf("<a");
 					 String idx = Integer.toString(index);
-					 if(index >0){
+					 if(index > 0){
 						 final String content6 = content5.substring(0,index-2);
 						 NTUEforumArrayList.add(time2);
 							NTUEforumArrayList.add(content6);

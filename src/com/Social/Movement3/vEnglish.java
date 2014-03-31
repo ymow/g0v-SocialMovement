@@ -5,6 +5,7 @@ import com.google.analytics.tracking.android.EasyTracker;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,9 @@ public class vEnglish extends Fragment {
 		        Log.v("ET WebView", "WebView OK");
 		        FlurryAgent.logEvent("English Live Video");
 
+					 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
+//					 ab.setTitle("My Title");
+					 ab.setTitle("English Live");
 		return rootView;
 		
 	}
