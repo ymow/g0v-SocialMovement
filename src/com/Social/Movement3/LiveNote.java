@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -16,13 +17,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.flurry.android.FlurryAgent;
-import com.google.analytics.tracking.android.EasyTracker;
-
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -31,6 +28,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.flurry.android.FlurryAgent;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.Tracker;
 
 public class LiveNote extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
@@ -45,7 +48,13 @@ public class LiveNote extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
 		View rootView = inflater.inflate(R.layout.livenote, container, false);
 //		  URL url = new URL("http://congress-text-live.herokuapp.com/json/");
-		Log.d("d","on create");			
+		Log.d("d","on create");		
+		//google analysis
+		Tracker tracker = GoogleAnalytics.getInstance(getActivity()).getTracker("UA-49389941-1");
+
+		HashMap<String, String> hitParameters = new HashMap<String, String>();
+		hitParameters.put(Fields.SCREEN_NAME, "LiveNote");
+		tracker.send(hitParameters);
 //		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		context = this;
 		NoteList = (ListView) rootView.findViewById(R.id.LiveNoteList);

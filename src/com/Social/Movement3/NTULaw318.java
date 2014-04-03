@@ -4,9 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -18,39 +17,40 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.Signature;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import com.facebook.FacebookRequestError;
-import com.facebook.HttpMethod;
-import com.facebook.Request;
-import com.facebook.Response;
 import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.model.GraphObject;
 import com.flurry.android.FlurryAgent;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.Tracker;
 
 public class NTULaw318 extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
 	   private String JSONString;
 	   String feedUrl = "https://www.facebook.com/feeds/page.php?format=json&id=722825317762908";
+
+	   ArrayList<String> feedUrl2 = new ArrayList<String>();
 		ListView NTUEforumList;
 		ArrayList<String> NTUEforumArrayList = new ArrayList<String>();
 		ArrayAdapter<String> NTUEforumAdapter;
@@ -66,26 +66,67 @@ public class NTULaw318 extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
 		View rootView = inflater.inflate(R.layout.ntueforum, container, false);
 //		  URL url = new URL("http://congress-text-live.herokuapp.com/json/");
-		Log.d("d","on create");			
-//		try {
-//		    PackageInfo info = getActivity().getPackageManager().getPackageInfo(
-//		          "com.Social.Movement3", PackageManager.GET_SIGNATURES);
-//		    for (Signature signature : info.signatures){
-//		           MessageDigest md = MessageDigest.getInstance("SHA");
-//		           md.update(signature.toByteArray());
-//		           Log.d("ymowkey:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-//		    }
-//		} catch (NameNotFoundException e) {
-//		} catch (NoSuchAlgorithmException e) {
-//		}
+		Log.d("d","on create");		
+		//google analysis
+		Tracker tracker = GoogleAnalytics.getInstance(getActivity()).getTracker("UA-49389941-1");
+
+		HashMap<String, String> hitParameters = new HashMap<String, String>();
+		hitParameters.put(Fields.SCREEN_NAME, "NTU Law 318");
+		tracker.send(hitParameters);
+
 
 //		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		context = this;
 		NTUEforumList = (ListView) rootView.findViewById(R.id.NTUeforumlist);
 		NTUEforumAdapter = new ArrayAdapter<String>(getActivity(), R.layout.fb_list_item, NTUEforumArrayList);
 		NTUEforumList.setAdapter(NTUEforumAdapter);
+			
+		NTUEforumList.setOnItemClickListener(new OnItemClickListener()
+		{
+		    @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+		    { 
+		        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
-		final NTUeTask loaderTask = new NTUeTask();
+
+	            alert.setTitle("台大法律學生挺318 說");
+
+	            WebView wv = new WebView(getActivity());
+	            wv.getSettings().setJavaScriptEnabled(true);
+	            String [] stockArr = feedUrl2.toArray(new String[position]);
+	           System.out.println(position);
+	           System.out.println((position-1)/2);
+	           if(position%2==0)
+	           {
+	        	   position = position+ 2 ;
+	           }
+	            wv.loadUrl(stockArr[(position-1)/2]);
+	            wv.setWebViewClient(new WebViewClient() {
+	                @Override
+	                public boolean shouldOverrideUrlLoading(WebView view,
+	                        String url) {
+	                    view.loadUrl(url);
+
+	                    return true;
+	                }
+	            });
+
+	            alert.setNegativeButton("Close",
+	                    new DialogInterface.OnClickListener() {
+	                        @Override
+	                        public void onClick(DialogInterface dialog, int id) {
+	                        }
+	                    });
+	            Dialog d = alert.setView(wv).create();
+	            d.show();
+	            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	            lp.copyFrom(d.getWindow().getAttributes());
+	            lp.width = WindowManager.LayoutParams.FILL_PARENT;
+	            lp.height = WindowManager.LayoutParams.FILL_PARENT;
+	            d.getWindow().setAttributes(lp);
+		    	Toast.makeText(getActivity(), "Loading...", Toast.LENGTH_LONG).show();
+		    }
+		});
+		NTUeTask loaderTask = new NTUeTask();
 		loaderTask.execute();
 		   FlurryAgent.logEvent("NTU Law 318");
 
@@ -190,24 +231,30 @@ public class NTULaw318 extends Fragment {
  
 					 
 //						System.out.println(names);		
-					String Content = news.getString("content");
+					final String Content = news.getString("content");
 					String content1 = Content.replace("\"","");
 					String content2 = content1.replace("[", "");
 					String content3 = content2.replace("]", "");
 					String content4 = content3.replace("<br />", "");
 					String content5 = content4.replace("<br/>", "");
+					Log.d("site",content5);	
 					 int index = content5.indexOf("<a");
+					 int indexEnd = content5.indexOf("</a>");
+					final String referencesite = news.getString("alternate");
+					feedUrl2.add(referencesite);
+						Log.d("referencesite",referencesite);	
 					 String idx = Integer.toString(index);
 					 if(index > 0){
 						 final String content6 = content5.substring(0,index-2);
 						 NTUEforumArrayList.add(time2);
-							NTUEforumArrayList.add(content6);
+							NTUEforumArrayList.add(content6 + "..."+i);
+//							NTUEforumArrayList.add("more..."+referencesite);
+
 					 }else{
 						 NTUEforumArrayList.add(time2);
 							NTUEforumArrayList.add(content5);
 					 }
-//					String site = content5.substring(idx,idx+1500);
-					Log.d("site",idx);			
+//					String site = content5.substring(idx,idx+1500);		
 //					String content6 = content5.replace(site, "");
 //					TextView txt3 = null  ;
 //					txt3.setText(content3);
@@ -284,4 +331,5 @@ public class NTULaw318 extends Fragment {
        EasyTracker.getInstance(getActivity()).activityStop(getActivity());  // Add this method.
        // your code
     }
+
 }

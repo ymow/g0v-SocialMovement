@@ -1,7 +1,12 @@
 package com.Social.Movement3;
  
+import java.util.HashMap;
+
 import com.flurry.android.FlurryAgent;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.Tracker;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,7 +24,12 @@ public class vEnglish extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
 		View rootView = inflater.inflate(R.layout.webviewlive, container, false);
 //		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-	 
+		//google analysis
+		Tracker tracker = GoogleAnalytics.getInstance(getActivity()).getTracker("UA-49389941-1");
+
+		HashMap<String, String> hitParameters = new HashMap<String, String>();
+		hitParameters.put(Fields.SCREEN_NAME, "English Streaming");
+		tracker.send(hitParameters);
 		      WebView englishtransWebView=(WebView)rootView.findViewById(R.id.webviewLive);
 			  WebSettings websettings = englishtransWebView.getSettings();  
 		        websettings.setSupportZoom(true);  
@@ -28,7 +38,7 @@ public class vEnglish extends Fragment {
 		        websettings.setJavaScriptEnabled(true);  	         
 		        englishtransWebView.setWebViewClient(new WebViewClient());  
 //		        englishtransWebView.loadUrl("file:///android_asset/index.html");
-		        englishtransWebView.loadUrl("http://www.ustream.tv/channel/17548030");  
+		        englishtransWebView.loadUrl("https://www.ustream.tv/embed/17548030");  
 		        
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");

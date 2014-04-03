@@ -1,7 +1,12 @@
 package com.Social.Movement3;
  
+import java.util.HashMap;
+
 import com.flurry.android.FlurryAgent;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.Tracker;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,7 +23,12 @@ public class EnglishTranscript extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
 		View rootView = inflater.inflate(R.layout.englishtranscript, container, false);
-		 
+		//google analysis
+		Tracker tracker = GoogleAnalytics.getInstance(getActivity()).getTracker("UA-49389941-1");
+
+		HashMap<String, String> hitParameters = new HashMap<String, String>();
+		hitParameters.put(Fields.SCREEN_NAME, "English Transcript");
+		tracker.send(hitParameters);
 		      WebView englishtransWebView=(WebView)rootView.findViewById(R.id.EnglishTransWebView);
 			  WebSettings websettings = englishtransWebView.getSettings();  
 		        websettings.setSupportZoom(true);  
