@@ -97,12 +97,12 @@ public void onCreate(Bundle savedInstanceState) {
    }else{
 	   
    
-    SharedPreferences settings = getSharedPreferences("Preference", 1);
+//    SharedPreferences settings = getSharedPreferences("Preference", 1);
 //		clear SharedPreferences @ /data/data/[package name]/shared_prefs/[preferences filename].xml
 //    SharedPreferences.Editor editor = settings.edit();
 //    editor.clear();
 //    editor.commit();
-    UserID = settings.getString("UserID", "");
+//    UserID = settings.getString("UserID", "");
     
 
 	
@@ -126,6 +126,7 @@ public void onCreate(Bundle savedInstanceState) {
 	            			
 	            	        startActivity(new Intent(Splash.this,
 	            	                MainActivity.class));
+	            	        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	            	        finish();
 
 

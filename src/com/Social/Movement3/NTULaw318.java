@@ -247,8 +247,7 @@ public class NTULaw318 extends Fragment {
 					 if(index > 0){
 						 final String content6 = content5.substring(0,index-2);
 						 NTUEforumArrayList.add(time2);
-							NTUEforumArrayList.add(content6 + "..."+i);
-//							NTUEforumArrayList.add("more..."+referencesite);
+							NTUEforumArrayList.add(content6 + "...");
 
 					 }else{
 						 NTUEforumArrayList.add(time2);

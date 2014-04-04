@@ -17,7 +17,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -26,6 +30,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -39,6 +46,8 @@ public class LiveNote extends Fragment {
  	//public static final String ARG_PAGER_NUMBER = "page_number";
 	   private String JSONString;
 	   String feedUrl = "http://congress-text-live.herokuapp.com/json/";
+	   ArrayList<String> feedUrl2 = new ArrayList<String>();
+		
 		ListView NoteList;
 		ArrayList<String> noteArrayList = new ArrayList<String>();
 		ArrayAdapter<String> noteAdapter;
@@ -60,6 +69,66 @@ public class LiveNote extends Fragment {
 		NoteList = (ListView) rootView.findViewById(R.id.LiveNoteList);
 		noteAdapter = new ArrayAdapter<String>(getActivity(), R.layout.news_list_item, noteArrayList);
 		NoteList.setAdapter(noteAdapter);
+		
+		NoteList.setOnItemClickListener(new OnItemClickListener()
+		{
+		    @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+		    { 
+		        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+
+	            alert.setTitle("立法院現場直播");
+ 
+	            final String  stockArr[] = feedUrl2.toArray(new String[position]);
+	            final int pos = position;
+//	            System.out.println(shareText);
+	           System.out.println(position);
+	           System.out.println((position-1)/2);
+
+	           if(position%2==0)
+	           {
+	        	   position = position+ 2 ;
+	           }
+
+	            alert.setNegativeButton("Close",
+	                    new DialogInterface.OnClickListener() {
+	                        @Override
+	                        public void onClick(DialogInterface dialog, int id) {
+	                        }
+	                    });
+	            alert.setPositiveButton("Share",
+	                    new DialogInterface.OnClickListener() {
+	                        @Override
+	                        public void onClick(DialogInterface dialog, int id) {
+	                      	  String playStoreLink = "https://play.google.com/store/apps/details?id=" +"com.Social.Movement3";
+	                    		String yourShareText = "Pray for Taiwan, Build from http://g0v.toady， "+" Install this app " + playStoreLink;
+
+
+	                  		 Intent intent = new Intent(Intent.ACTION_SEND);
+//	                  	        intent.setComponent(new ComponentName("jp.naver.line.android",
+//	                  	                "com.facebook.katana"));
+	                  	        intent.setType("text/plain"); 
+	                  	        intent.putExtra(Intent.EXTRA_SUBJECT, "跟我一起到g0v關注黑箱服貿協議");
+	                  	        intent.putExtra(Intent.EXTRA_TEXT, stockArr[(pos-1)/2] + yourShareText);
+	                  	      startActivity(intent);
+	                  	   	   FlurryAgent.logEvent("Live Note Share");
+ 
+	                  	
+	                        }
+	                        
+	                    });
+	            
+		           Dialog d = alert.setMessage(stockArr[(position-1)/2]).create();
+	            d.show();
+	            
+	            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	            lp.copyFrom(d.getWindow().getAttributes());
+	            lp.width = WindowManager.LayoutParams.FILL_PARENT;
+	            lp.height = WindowManager.LayoutParams.FILL_PARENT;
+	            d.getWindow().setAttributes(lp);
+//		    	Toast.makeText(getActivity(), "Loading...", Toast.LENGTH_LONG).show();
+		    }
+		});
 		   FlurryAgent.logEvent("Load text Live");
 
 		final VideoListTask loaderTask = new VideoListTask();
@@ -142,6 +211,7 @@ public class LiveNote extends Fragment {
 //					String location = new JSONObject(jsonData).getString("location");
 //					System.out.println(b.indexOf('a', 10));
 //					int Time = news.getString("time").indexOf("\"", i);
+					
 					String Content = news.getString("content");
 					String content1 = Content.replace("\"","");
 					String content2 = content1.replace("[", "");
@@ -151,6 +221,7 @@ public class LiveNote extends Fragment {
 //					txt3.setTextColor(color.pink);
 					noteArrayList.add(news.getString("time").replace("\"", "")+" "+news.getString("location").replace("\"", ""));
 					noteArrayList.add(content3);
+					feedUrl2.add(content3);
 				}
 				
 				

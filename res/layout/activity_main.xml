@@ -50,7 +50,7 @@
 		        android:layout_height="match_parent"
 		        android:layout_gravity="start"
 		        android:choiceMode="singleChoice"
-		        android:dividerHeight="1dp"
+		        android:dividerHeight="2dp"
 		        android:background="@color/yellow"/>
 		</android.support.v4.widget.DrawerLayout>
 
