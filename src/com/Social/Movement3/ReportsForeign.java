@@ -45,7 +45,11 @@ public class ReportsForeign extends Fragment {
 		        //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions   
 		        Log.v("ET WebView", "WebView OK");
 		        FlurryAgent.logEvent("Reports from Foreign");
+		        Tracker tracker2 = GoogleAnalytics.getInstance(getActivity()).getTracker("UA-49389941-1");
 
+				HashMap<String, String> hitParameters2 = new HashMap<String, String>();
+				hitParameters.put(Fields.SCREEN_NAME, "Happy Sunflower Map");
+				tracker.send(hitParameters);
 		return rootView;
 		
 	}

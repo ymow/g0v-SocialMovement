@@ -154,7 +154,11 @@ public class fbSunFlowerMovement extends Fragment {
 		NTUeTask loaderTask = new NTUeTask();
 		loaderTask.execute();
 		   FlurryAgent.logEvent("fbSunFlowerMovement");
+		   Tracker tracker2 = GoogleAnalytics.getInstance(getActivity()).getTracker("UA-49389941-1");
 
+			HashMap<String, String> hitParameters2 = new HashMap<String, String>();
+			hitParameters.put(Fields.SCREEN_NAME, "fbSunFlower Movement");
+			tracker.send(hitParameters);
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
 //		 ab.setTitle("My Title");
 		 ab.setTitle("Sunflower Movement 粉絲團");

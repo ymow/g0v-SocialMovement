@@ -1,5 +1,7 @@
 package com.Social.Movement3;
 
+import java.util.HashMap;
+
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -13,6 +15,9 @@ import android.view.ViewGroup;
 
 import com.flurry.android.FlurryAgent;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.GoogleAnalytics;
+import com.google.analytics.tracking.android.Tracker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
@@ -83,7 +88,12 @@ public class SunFlowerMap extends Fragment {
 
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
 		 ab.setTitle(distance+" m");
-		 
+		   FlurryAgent.logEvent("Happy SunFlower Map");
+		   Tracker tracker = GoogleAnalytics.getInstance(getActivity()).getTracker("UA-49389941-1");
+
+			HashMap<String, String> hitParameters = new HashMap<String, String>();
+			hitParameters.put(Fields.SCREEN_NAME, "Happy Sunflower Map");
+			tracker.send(hitParameters);
 	//	dummyTextView.setText(Integer.toString(getArguments().getInt(
 	//			ARG_PAGER_NUMBER)));
 		return rootView;
