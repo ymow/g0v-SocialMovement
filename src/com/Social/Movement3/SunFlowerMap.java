@@ -3,7 +3,6 @@ package com.Social.Movement3;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +25,17 @@ public class SunFlowerMap extends Fragment {
     public static final String CLIENT_ID = "NX1D4CU0PWDDATA3DFPRDLURPI1CFHHBFFNMCRUXOXAM401G";
     public static final String CLIENT_SECRET = "ZUFXTM4LGBBY52G2DMCHLHEXGSWDTLFBRAFNMKDBMYIHBUK4";
 //    static final LatLng BottleCapp = new LatLng(51.371986, 0.065593);
+    static final LatLng lyLocation = new LatLng(25.044187, 121.519457);
     private GoogleMap map;
  
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
 		View rootView = inflater.inflate(R.layout.sunflowermap, container, false);
- 
+
+SupportMapFragment mapFrag=(SupportMapFragment)getFragmentManager().findFragmentById(R.id.map);//	        Marker nkut = map.addMarker(new MarkerOptions().position(lyLocation).title("立法院").snippet("數位生活創意系"));
+
+	        // Move the camera instantly to NKUT with a zoom of 16.
+//	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(lyLocation, 16));
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
 		 ab.setTitle("開心立法院");
 		 
