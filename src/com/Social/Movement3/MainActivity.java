@@ -30,7 +30,7 @@ import com.parse.PushService;
 
  
 public class MainActivity extends FragmentActivity {
-	final String[] menuEntries = { "現場文字轉播","開心立法院","English Transcript","Sunflower Movement","台大法律學生挺318",
+	final String[] menuEntries = { "現場文字轉播","Congress Location","English Transcript","Sunflower Movement","台大法律學生挺318",
 			"English Live Stream","Reports from foreign","關於"};
 //	,"English Live","議場內 樓上", "議場內 樓上（Apple)",,"Sunflower Movement 太陽花學運"
 //	"議場內 樓下（五六）","議場內 樓下（音地）","青島東 北側（g0v）","濟南路 機動（g0v）","濟南路 南測","議會外(Apple)"

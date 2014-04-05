@@ -1,16 +1,23 @@
 package com.Social.Movement3;
 
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.flurry.android.FlurryAgent;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -32,12 +39,50 @@ public class SunFlowerMap extends Fragment {
 //		 setUpMapIfNeeded(rootView);
 		map =((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 //		SupportMapFragment mapFrag=(SupportMapFragment)getFragmentManager().findFragmentById(R.id.map);
-			Marker ly = map.addMarker(new MarkerOptions().position(lyLocation).title("立法院").snippet("太陽花之役"));
+			Marker ly = map.addMarker(new MarkerOptions().position(lyLocation).title("立法院").snippet("Sunflower Movement"));
+//			 map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+
 			map.getUiSettings().setZoomControlsEnabled(true);
-	        // Move the camera instantly to NKUT with a zoom of 16.
-//	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(lyLocation, 16));
+
+	        // Move the camera instantly to ly with a zoom of 17.
+	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(lyLocation, 17));
+
+	        LocationManager lm = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
+	        Criteria criteria = new Criteria();
+	        String  bestProvider = lm.getBestProvider(criteria, false);
+	        Location location = lm.getLastKnownLocation(bestProvider);
+	        
+	        LatLng markerLoc=new LatLng(location.getLatitude(), location.getLongitude());
+	        final CameraPosition cameraPosition = new CameraPosition.Builder()
+	        .target(lyLocation)      // Sets the center of the map to Mountain View
+	        .zoom(17)                   // Sets the zoom
+	        .bearing(90)                // Sets the orientation of the camera to east
+	        .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+	        .build();                   //
+//	        map.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title("Me"));
+	        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+	        map.setOnMyLocationButtonClickListener(new OnMyLocationButtonClickListener(){
+	        	@Override
+	            public boolean onMyLocationButtonClick() {
+	        		
+//	        	    map.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title("Me"));
+
+	                map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+	                return true;
+	            }
+	        });
+//		    map.addMarker(new MarkerOptions() .position(new LatLng(xxxxxx,xxxxxx)) .title("Current Location")
+//		            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ball_pointer))
+//		            .snippet("xxxxx"));
+	        Location LyLocation = new Location("ly");
+//	        25.044187, 121.519457
+	        LyLocation.setLatitude(25.044187);
+	        LyLocation.setLongitude(121.519457);
+
+	        float distance = location.distanceTo(LyLocation);
+
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
-		 ab.setTitle("開心立法院");
+		 ab.setTitle(distance+" m");
 		 
 	//	dummyTextView.setText(Integer.toString(getArguments().getInt(
 	//			ARG_PAGER_NUMBER)));
@@ -53,6 +98,10 @@ public class SunFlowerMap extends Fragment {
 	public void onDestroyView() {
 		// TODO Auto-generated method stub
 		super.onDestroyView();
+		  Fragment fragment = (getFragmentManager().findFragmentById(R.id.map));  
+	        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+	        ft.remove(fragment);
+	        ft.commit();
  
 	}	
     public void onStart()
