@@ -514,7 +514,8 @@ containing a value of this type.
         public static final int hybrid=0x7f060004;
         public static final int large=0x7f060006;
         public static final int left_drawer=0x7f060012;
-        public static final int menu_share=0x7f06003a;
+        public static final int map=0x7f060039;
+        public static final int menu_share=0x7f06003b;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int pager=0x7f060013;
@@ -532,7 +533,7 @@ containing a value of this type.
         public static final int textView7=0x7f06000d;
         public static final int textView8=0x7f06000e;
         public static final int textView9=0x7f06000f;
-        public static final int webviewLive=0x7f060039;
+        public static final int webviewLive=0x7f06003a;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
@@ -568,8 +569,9 @@ containing a value of this type.
         public static final int profilefragment=0x7f03001b;
         public static final int slidemenu=0x7f03001c;
         public static final int splash=0x7f03001d;
-        public static final int video_list_item=0x7f03001e;
-        public static final int webviewlive=0x7f03001f;
+        public static final int sunflowermap=0x7f03001e;
+        public static final int video_list_item=0x7f03001f;
+        public static final int webviewlive=0x7f030020;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;

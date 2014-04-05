@@ -1,47 +1,39 @@
 package com.Social.Movement3;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.flurry.android.FlurryAgent;
-import com.google.analytics.tracking.android.EasyTracker;
-
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
+import com.flurry.android.FlurryAgent;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class SunFlowerMap extends Fragment {
-
-	@Override
+ 
+	  private static final int REQUEST_CODE_FSQ_CONNECT = 200;
+	  private static final int REQUEST_CODE_FSQ_TOKEN_EXCHANGE = 201;
+	    
+ 
+    public static final String CLIENT_ID = "NX1D4CU0PWDDATA3DFPRDLURPI1CFHHBFFNMCRUXOXAM401G";
+    public static final String CLIENT_SECRET = "ZUFXTM4LGBBY52G2DMCHLHEXGSWDTLFBRAFNMKDBMYIHBUK4";
+//    static final LatLng BottleCapp = new LatLng(51.371986, 0.065593);
+    private GoogleMap map;
+ 
+    @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
-		View rootView = inflater.inflate(R.layout.livenote, container, false);
-
-
+		View rootView = inflater.inflate(R.layout.sunflowermap, container, false);
+ 
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
-//		 ab.setTitle("My Title");
-		 ab.setTitle("SunFlowerMap");
+		 ab.setTitle("開心立法院");
 		 
 	//	dummyTextView.setText(Integer.toString(getArguments().getInt(
 	//			ARG_PAGER_NUMBER)));
@@ -73,5 +65,6 @@ public class SunFlowerMap extends Fragment {
        EasyTracker.getInstance(getActivity()).activityStop(getActivity());  // Add this method.
        // your code
     }
+    
 
 }

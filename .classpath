@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry exported="true" kind="lib" path="/Volumes/lunaold/programfile/Android_MAC/android-sdk-macosx/extras/Analysis/Flurry Android SDK vAndroid 3.3.4/Android 3.3.4/FlurryAnalytics/FlurryAnalytics_3.3.4.jar"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry exported="true" kind="lib" path="/Users/Ymow/Downloads/GoogleAnalyticsServicesAndroid_3.01/libGoogleAnalyticsServices.jar"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry exported="true" kind="lib" path="/Volumes/lunaold/programfile/Android_MAC/android-sdk-macosx/extras/Parse-1.4.1/Parse-1.4.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>

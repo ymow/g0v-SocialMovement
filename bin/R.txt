@@ -219,7 +219,8 @@ int id drawer_layout 0x7f060010
 int id hybrid 0x7f060004
 int id large 0x7f060006
 int id left_drawer 0x7f060012
-int id menu_share 0x7f06003a
+int id map 0x7f060039
+int id menu_share 0x7f06003b
 int id none 0x7f060000
 int id normal 0x7f060001
 int id pager 0x7f060013
@@ -237,7 +238,7 @@ int id textView6 0x7f06000c
 int id textView7 0x7f06000d
 int id textView8 0x7f06000e
 int id textView9 0x7f06000f
-int id webviewLive 0x7f060039
+int id webviewLive 0x7f06003a
 int integer google_play_services_version 0x7f080000
 int layout about 0x7f030000
 int layout activity_main 0x7f030001
@@ -269,8 +270,9 @@ int layout ntueforum 0x7f03001a
 int layout profilefragment 0x7f03001b
 int layout slidemenu 0x7f03001c
 int layout splash 0x7f03001d
-int layout video_list_item 0x7f03001e
-int layout webviewlive 0x7f03001f
+int layout sunflowermap 0x7f03001e
+int layout video_list_item 0x7f03001f
+int layout webviewlive 0x7f030020
 int menu main 0x7f0d0000
 int string FuseName1 0x7f070035
 int string FuseName2 0x7f070036
