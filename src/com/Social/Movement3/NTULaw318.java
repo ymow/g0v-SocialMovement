@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -92,9 +93,11 @@ public class NTULaw318 extends Fragment {
 
 	            WebView wv = new WebView(getActivity());
 	            wv.getSettings().setJavaScriptEnabled(true);
-	            String [] stockArr = feedUrl2.toArray(new String[position]);
+	            final String [] stockArr = feedUrl2.toArray(new String[position]);
+	            final int pos = position;
 	           System.out.println(position);
 	           System.out.println((position-1)/2);
+	           
 	           if(position%2==0)
 	           {
 	        	   position = position+ 2 ;
@@ -116,6 +119,28 @@ public class NTULaw318 extends Fragment {
 	                        public void onClick(DialogInterface dialog, int id) {
 	                        }
 	                    });
+	            alert.setPositiveButton("Share",
+	                    new DialogInterface.OnClickListener() {
+	                        @Override
+	                        public void onClick(DialogInterface dialog, int id) {
+	                      	  String playStoreLink = "https://play.google.com/store/apps/details?id=" +"com.Social.Movement3";
+	                    		String yourShareText = "  Pray for Taiwan, Build from http://g0v.toady， "+" Install this app " + playStoreLink;
+
+
+	                  		 Intent intent = new Intent(Intent.ACTION_SEND);
+//	                  	        intent.setComponent(new ComponentName("jp.naver.line.android",
+//	                  	                "com.facebook.katana"));
+	                  	        intent.setType("text/plain"); 
+	                  	        intent.putExtra(Intent.EXTRA_SUBJECT, "跟我一起到g0v關注黑箱服貿協議");
+	                  	        intent.putExtra(Intent.EXTRA_TEXT, stockArr[(pos-1)/2] + yourShareText);
+	                  	      startActivity(intent);
+	                  	   	   FlurryAgent.logEvent("NTULaw318 FanPage Share");
+ 
+	                  	
+	                        }
+	                        
+	                    });
+	            
 	            Dialog d = alert.setView(wv).create();
 	            d.show();
 	            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
