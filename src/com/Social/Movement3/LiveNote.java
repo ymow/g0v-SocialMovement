@@ -94,6 +94,7 @@ public class LiveNote extends Fragment {
 	                    new DialogInterface.OnClickListener() {
 	                        @Override
 	                        public void onClick(DialogInterface dialog, int id) {
+	                        	FlurryAgent.logEvent("Live Note Close");
 	                        }
 	                    });
 	            alert.setPositiveButton("Share",
