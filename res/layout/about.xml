@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@color/black">
+<LinearLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/black"
     android:orientation="vertical" >
-
+ 
+    
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -85,12 +91,36 @@
         android:text="https://www.facebook.com/ntulaw318"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="14sp" />
+    
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:autoLink="web"
+        android:text="Sunflower Movement"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:autoLink="web"    
+        android:text="http://on.fb.me/1fW4Lju"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="@color/pink"
         android:text="服務貿易協定總整理"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -106,3 +136,4 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </LinearLayout>
+</ScrollView>
