@@ -18,10 +18,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
         android:layout_margin="12dp"
-        android:text="火力支援"
+        android:text="捍衛民主 火力支援"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/yellow" 
-        android:textSize="36sp"/>
+        android:textSize="32sp"/>
 
     <TextView
         android:id="@+id/textView2"

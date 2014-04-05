@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.Social.Movement3"
-    android:versionCode="16"
-    android:versionName="2.3.0" >
+    android:versionCode="17"
+    android:versionName="3.0.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -84,7 +84,9 @@
         
  <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
 
-
+  <permission
+    android:name="com.Social.Movement3.permission.MAPS_RECEIVE"
+    android:protectionLevel="signature" />
  
   <uses-permission
      android:name="com.Social.Movement3.permission.MAPS_RECEIVE" />

@@ -10,5 +10,6 @@ package com.Social.Movement3;
 public final class Manifest {
     public static final class permission {
         public static final String C2D_MESSAGE="com.Social.Movement3.permission.C2D_MESSAGE";
+        public static final String MAPS_RECEIVE="com.Social.Movement3.permission.MAPS_RECEIVE";
     }
 }

@@ -9,13 +9,11 @@ import android.view.ViewGroup;
 
 import com.flurry.android.FlurryAgent;
 import com.google.analytics.tracking.android.EasyTracker;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 public class SunFlowerMap extends Fragment {
  
 	  private static final int REQUEST_CODE_FSQ_CONNECT = 200;
@@ -31,9 +29,11 @@ public class SunFlowerMap extends Fragment {
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saBundle){
 		View rootView = inflater.inflate(R.layout.sunflowermap, container, false);
-
-SupportMapFragment mapFrag=(SupportMapFragment)getFragmentManager().findFragmentById(R.id.map);//	        Marker nkut = map.addMarker(new MarkerOptions().position(lyLocation).title("立法院").snippet("數位生活創意系"));
-
+//		 setUpMapIfNeeded(rootView);
+		map =((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+//		SupportMapFragment mapFrag=(SupportMapFragment)getFragmentManager().findFragmentById(R.id.map);
+			Marker ly = map.addMarker(new MarkerOptions().position(lyLocation).title("立法院").snippet("太陽花之役"));
+			map.getUiSettings().setZoomControlsEnabled(true);
 	        // Move the camera instantly to NKUT with a zoom of 16.
 //	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(lyLocation, 16));
 		 FragmentActivity ab = getActivity(); //needs  import android.app.ActionBar;
