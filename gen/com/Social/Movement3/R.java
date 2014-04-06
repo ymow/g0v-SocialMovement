@@ -319,6 +319,7 @@ containing a value of this type.
         public static final int ga_reportUncaughtExceptions=0x7f0b0001;
     }
     public static final class color {
+        public static final int android_green=0x7f05001a;
         public static final int black=0x7f050017;
         public static final int blue=0x7f050013;
         public static final int com_facebook_blue=0x7f05000c;
@@ -340,8 +341,8 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f050006;
         public static final int common_signin_btn_light_text_focused=0x7f050007;
         public static final int common_signin_btn_light_text_pressed=0x7f050005;
-        public static final int common_signin_btn_text_dark=0x7f05001a;
-        public static final int common_signin_btn_text_light=0x7f05001b;
+        public static final int common_signin_btn_text_dark=0x7f05001b;
+        public static final int common_signin_btn_text_light=0x7f05001c;
         public static final int facebook=0x7f050019;
         public static final int gred=0x7f050012;
         public static final int lightyellow=0x7f050016;
@@ -474,60 +475,63 @@ containing a value of this type.
         public static final int tab_unselected_sunflower=0x7f020060;
     }
     public static final class id {
-        public static final int CongressOccupied=0x7f06003a;
-        public static final int DialogWeb=0x7f060030;
-        public static final int DigitalAlarmTime=0x7f06001a;
-        public static final int EnglishTransWebView=0x7f060032;
-        public static final int FriendsList=0x7f060033;
-        public static final int FuseName=0x7f060018;
-        public static final int FuseNameBackground=0x7f060017;
-        public static final int InfoFragment=0x7f060037;
-        public static final int LiveNoteList=0x7f060034;
-        public static final int LiveVideoList=0x7f060035;
-        public static final int MenuFragment=0x7f060039;
-        public static final int NTUeforumlist=0x7f060036;
-        public static final int ProfileBackground=0x7f060019;
-        public static final int ProfileFragment=0x7f060038;
-        public static final int RelativeLayout1=0x7f060031;
-        public static final int com_facebook_login_activity_progress_bar=0x7f06001d;
-        public static final int com_facebook_picker_activity_circle=0x7f06001c;
-        public static final int com_facebook_picker_checkbox=0x7f06001f;
-        public static final int com_facebook_picker_checkbox_stub=0x7f060023;
-        public static final int com_facebook_picker_divider=0x7f060027;
-        public static final int com_facebook_picker_done_button=0x7f060026;
-        public static final int com_facebook_picker_image=0x7f060020;
-        public static final int com_facebook_picker_list_section_header=0x7f060024;
-        public static final int com_facebook_picker_list_view=0x7f06001b;
-        public static final int com_facebook_picker_profile_pic_stub=0x7f060021;
-        public static final int com_facebook_picker_row_activity_circle=0x7f06001e;
-        public static final int com_facebook_picker_search_text=0x7f06002c;
-        public static final int com_facebook_picker_title=0x7f060022;
-        public static final int com_facebook_picker_title_bar=0x7f060029;
-        public static final int com_facebook_picker_title_bar_stub=0x7f060028;
-        public static final int com_facebook_picker_top_bar=0x7f060025;
-        public static final int com_facebook_search_bar_view=0x7f06002b;
-        public static final int com_facebook_usersettingsfragment_login_button=0x7f06002f;
-        public static final int com_facebook_usersettingsfragment_logo_image=0x7f06002d;
-        public static final int com_facebook_usersettingsfragment_profile_name=0x7f06002e;
-        public static final int content_frame=0x7f060014;
-        public static final int drawer_layout=0x7f060013;
+        public static final int CongressOccupied=0x7f06003d;
+        public static final int DialogWeb=0x7f060032;
+        public static final int DigitalAlarmTime=0x7f06001b;
+        public static final int EnglishTransWebView=0x7f060034;
+        public static final int FriendsList=0x7f060035;
+        public static final int FuseName=0x7f060019;
+        public static final int FuseNameBackground=0x7f060018;
+        public static final int InfoFragment=0x7f06003a;
+        public static final int LiveNoteList=0x7f060036;
+        public static final int LiveNoteListText=0x7f060038;
+        public static final int LiveVideoList=0x7f060037;
+        public static final int MenuFragment=0x7f06003c;
+        public static final int NTUeforumlist=0x7f060039;
+        public static final int ProfileBackground=0x7f06001a;
+        public static final int ProfileFragment=0x7f06003b;
+        public static final int RelativeLayout1=0x7f060033;
+        public static final int com_facebook_login_activity_progress_bar=0x7f06001e;
+        public static final int com_facebook_picker_activity_circle=0x7f06001d;
+        public static final int com_facebook_picker_checkbox=0x7f060020;
+        public static final int com_facebook_picker_checkbox_stub=0x7f060024;
+        public static final int com_facebook_picker_divider=0x7f060028;
+        public static final int com_facebook_picker_done_button=0x7f060027;
+        public static final int com_facebook_picker_image=0x7f060021;
+        public static final int com_facebook_picker_list_section_header=0x7f060025;
+        public static final int com_facebook_picker_list_view=0x7f06001c;
+        public static final int com_facebook_picker_profile_pic_stub=0x7f060022;
+        public static final int com_facebook_picker_row_activity_circle=0x7f06001f;
+        public static final int com_facebook_picker_search_text=0x7f06002d;
+        public static final int com_facebook_picker_title=0x7f060023;
+        public static final int com_facebook_picker_title_bar=0x7f06002a;
+        public static final int com_facebook_picker_title_bar_stub=0x7f060029;
+        public static final int com_facebook_picker_top_bar=0x7f060026;
+        public static final int com_facebook_search_bar_view=0x7f06002c;
+        public static final int com_facebook_usersettingsfragment_login_button=0x7f060030;
+        public static final int com_facebook_usersettingsfragment_logo_image=0x7f06002e;
+        public static final int com_facebook_usersettingsfragment_profile_name=0x7f06002f;
+        public static final int content_frame=0x7f060015;
+        public static final int drawer_layout=0x7f060014;
         public static final int hybrid=0x7f060004;
         public static final int large=0x7f060006;
-        public static final int left_drawer=0x7f060015;
-        public static final int map=0x7f06003c;
-        public static final int menu_share=0x7f06003e;
+        public static final int left_drawer=0x7f060016;
+        public static final int map=0x7f06003f;
+        public static final int menu_share=0x7f060041;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int pager=0x7f060016;
-        public static final int picker_subtitle=0x7f06002a;
+        public static final int pager=0x7f060017;
+        public static final int picker_subtitle=0x7f06002b;
         public static final int satellite=0x7f060002;
         public static final int scrollView1=0x7f060007;
         public static final int small=0x7f060005;
-        public static final int splashtime=0x7f06003b;
+        public static final int splashtime=0x7f06003e;
         public static final int terrain=0x7f060003;
+        public static final int text=0x7f060031;
         public static final int textView1=0x7f060008;
         public static final int textView10=0x7f06000f;
         public static final int textView11=0x7f060010;
+        public static final int textView12=0x7f060013;
         public static final int textView2=0x7f060009;
         public static final int textView3=0x7f06000a;
         public static final int textView4=0x7f06000b;
@@ -536,7 +540,7 @@ containing a value of this type.
         public static final int textView7=0x7f06000e;
         public static final int textView8=0x7f060011;
         public static final int textView9=0x7f060012;
-        public static final int webviewLive=0x7f06003d;
+        public static final int webviewLive=0x7f060040;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
@@ -560,21 +564,22 @@ containing a value of this type.
         public static final int com_facebook_placepickerfragment_list_row=0x7f03000f;
         public static final int com_facebook_search_bar_layout=0x7f030010;
         public static final int com_facebook_usersettingsfragment=0x7f030011;
-        public static final int dialogwebview=0x7f030012;
-        public static final int englishtranscript=0x7f030013;
-        public static final int fb_list_item=0x7f030014;
-        public static final int friendslist=0x7f030015;
-        public static final int infofragment=0x7f030016;
-        public static final int livenote=0x7f030017;
-        public static final int livevideo=0x7f030018;
-        public static final int news_list_item=0x7f030019;
-        public static final int ntueforum=0x7f03001a;
-        public static final int profilefragment=0x7f03001b;
-        public static final int slidemenu=0x7f03001c;
-        public static final int splash=0x7f03001d;
-        public static final int sunflowermap=0x7f03001e;
-        public static final int video_list_item=0x7f03001f;
-        public static final int webviewlive=0x7f030020;
+        public static final int customfont=0x7f030012;
+        public static final int dialogwebview=0x7f030013;
+        public static final int englishtranscript=0x7f030014;
+        public static final int fb_list_item=0x7f030015;
+        public static final int friendslist=0x7f030016;
+        public static final int infofragment=0x7f030017;
+        public static final int livenote=0x7f030018;
+        public static final int livevideo=0x7f030019;
+        public static final int news_list_item=0x7f03001a;
+        public static final int ntueforum=0x7f03001b;
+        public static final int profilefragment=0x7f03001c;
+        public static final int slidemenu=0x7f03001d;
+        public static final int splash=0x7f03001e;
+        public static final int sunflowermap=0x7f03001f;
+        public static final int video_list_item=0x7f030020;
+        public static final int webviewlive=0x7f030021;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
@@ -1416,5 +1421,32 @@ containing a value of this type.
           @attr name com.Social.Movement3:preset_size
         */
         public static final int com_facebook_profile_picture_view_preset_size = 0;
+        /**  FONT FAIIMLY FOR Project 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #customfont_android_fontFamily android:fontFamily}</code></td><td></td></tr>
+           <tr><td><code>{@link #customfont_android_textStyle android:textStyle}</code></td><td></td></tr>
+           </table>
+           @see #customfont_android_fontFamily
+           @see #customfont_android_textStyle
+         */
+        public static final int[] customfont = {
+            0x01010097, 0x010103ac
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#fontFamily}
+          attribute's value can be found in the {@link #customfont} array.
+          @attr name android:fontFamily
+        */
+        public static final int customfont_android_fontFamily = 1;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#textStyle}
+          attribute's value can be found in the {@link #customfont} array.
+          @attr name android:textStyle
+        */
+        public static final int customfont_android_textStyle = 0;
     };
 }

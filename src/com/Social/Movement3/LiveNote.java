@@ -22,6 +22,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -35,6 +36,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.flurry.android.FlurryAgent;
 import com.google.analytics.tracking.android.EasyTracker;
@@ -131,7 +133,7 @@ public class LiveNote extends Fragment {
 		    }
 		});
 		   FlurryAgent.logEvent("Load text Live");
-
+		  
 		final VideoListTask loaderTask = new VideoListTask();
 		loaderTask.execute();
 

@@ -1,4 +1,4 @@
-/*AVDB Copyright*/
+
 package com.Social.Movement3;
 
  

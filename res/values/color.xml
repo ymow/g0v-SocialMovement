@@ -8,6 +8,7 @@
     <color name="lightyellow">#fcff54</color>
     <color name="black">#000000</color>
     <color name="red">#ca0102</color>
-    <color name="facebook">#3f5d9a</color>        
-    
+    <color name="facebook">#3f5d9a</color> 
+    <color name="android_green">#92b83e</color>        
+
 </resources>

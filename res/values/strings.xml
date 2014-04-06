@@ -23,6 +23,8 @@
     <string name="action_settings">setting</string>
  	<string name="menu_share">share</string>
 	<string name="app_id">676201322438987</string>    
+	<!-- FONT FAIIMLY FOR Project -->
+ <declare-styleable name="customfont"> <attr name="android:fontFamily"/> <attr name="android:textStyle"/> </declare-styleable>
 </resources>
 <!--
   Copyright 2013 The Android Open Source Project
