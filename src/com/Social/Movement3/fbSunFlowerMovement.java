@@ -79,7 +79,7 @@ public class fbSunFlowerMovement extends Fragment {
 //		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		context = this;
 		NTUEforumList = (ListView) rootView.findViewById(R.id.NTUeforumlist);
-		NTUEforumAdapter = new ArrayAdapter<String>(getActivity(), R.layout.fb_list_item, NTUEforumArrayList);
+		NTUEforumAdapter = new ArrayAdapter<String>(getActivity(), R.layout.fb_list_item_en, NTUEforumArrayList);
 		NTUEforumList.setAdapter(NTUEforumAdapter);
 			
 		NTUEforumList.setOnItemClickListener(new OnItemClickListener()
@@ -267,21 +267,23 @@ public class fbSunFlowerMovement extends Fragment {
 					String content3 = content2.replace("]", "");
 					String content4 = content3.replace("<br />", "");
 					String content5 = content4.replace("<br/>", "");
-					Log.d("site",content5);	
-					 int index = content5.indexOf("<a");
-					 int indexEnd = content5.indexOf("</a>");
+					String content6 = content5.replace("&quot;", "\"");
+					String content7 = content6.replace("&#39;", "'");
+					Log.d("site",content7);	
+					 int index = content7.indexOf("<a");
+					 int indexEnd = content7.indexOf("</a>");
 					final String referencesite = news.getString("alternate");
 					feedUrl2.add(referencesite);
 						Log.d("referencesite",referencesite);	
 					 String idx = Integer.toString(index);
 					 if(index > 0){
-						 final String content6 = content5.substring(0,index-2);
+						 final String content8 = content7.substring(0,index-2);
 						 NTUEforumArrayList.add(time2);
-							NTUEforumArrayList.add(content6 + "...");
+							NTUEforumArrayList.add(content8 + "...");
 
 					 }else{
 						 NTUEforumArrayList.add(time2);
-							NTUEforumArrayList.add(content5);
+							NTUEforumArrayList.add(content7);
 					 }
 //					String site = content5.substring(idx,idx+1500);		
 //					String content6 = content5.replace(site, "");

@@ -10,11 +10,15 @@
  
     <com.Social.Movement3.CustomText xmlns:android="http://schemas.android.com/apk/res/android"
  
-    android:fontFamily="black.ttc"
+    android:fontFamily="LiHeiProPC.ttf"
     android:id="@+id/LiveNoteListText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textSize="18sp" 
+    android:paddingTop="12sp"
+    android:paddingBottom="12sp"
+        android:paddingLeft="8sp"
+    android:paddingRight="8sp"
+    android:textSize="16sp" 
     android:textColor="@color/white"
-    android:lineSpacingMultiplier="2"/>
+    android:lineSpacingMultiplier="1.4"/>
     

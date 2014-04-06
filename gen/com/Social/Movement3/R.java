@@ -479,13 +479,13 @@ containing a value of this type.
         public static final int DialogWeb=0x7f060032;
         public static final int DigitalAlarmTime=0x7f06001b;
         public static final int EnglishTransWebView=0x7f060034;
-        public static final int FriendsList=0x7f060035;
+        public static final int FBListvViewen=0x7f060036;
+        public static final int FriendsList=0x7f060037;
         public static final int FuseName=0x7f060019;
         public static final int FuseNameBackground=0x7f060018;
         public static final int InfoFragment=0x7f06003a;
-        public static final int LiveNoteList=0x7f060036;
-        public static final int LiveNoteListText=0x7f060038;
-        public static final int LiveVideoList=0x7f060037;
+        public static final int LiveNoteList=0x7f060038;
+        public static final int LiveNoteListText=0x7f060035;
         public static final int MenuFragment=0x7f06003c;
         public static final int NTUeforumlist=0x7f060039;
         public static final int ProfileBackground=0x7f06001a;
@@ -568,18 +568,17 @@ containing a value of this type.
         public static final int dialogwebview=0x7f030013;
         public static final int englishtranscript=0x7f030014;
         public static final int fb_list_item=0x7f030015;
-        public static final int friendslist=0x7f030016;
-        public static final int infofragment=0x7f030017;
-        public static final int livenote=0x7f030018;
-        public static final int livevideo=0x7f030019;
+        public static final int fb_list_item_en=0x7f030016;
+        public static final int friendslist=0x7f030017;
+        public static final int infofragment=0x7f030018;
+        public static final int livenote=0x7f030019;
         public static final int news_list_item=0x7f03001a;
         public static final int ntueforum=0x7f03001b;
         public static final int profilefragment=0x7f03001c;
         public static final int slidemenu=0x7f03001d;
         public static final int splash=0x7f03001e;
         public static final int sunflowermap=0x7f03001f;
-        public static final int video_list_item=0x7f030020;
-        public static final int webviewlive=0x7f030021;
+        public static final int webviewlive=0x7f030020;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;

@@ -222,7 +222,7 @@ public class LiveNote extends Fragment {
 //					TextView txt3 = null  ;
 //					txt3.setText(content3);
 //					txt3.setTextColor(color.pink);
-					noteArrayList.add(news.getString("time").replace("\"", "")+" "+news.getString("location").replace("\"", ""));
+					noteArrayList.add("2014-"+news.getString("month").replace("\"", "")+"-"+news.getString("date").replace("\"", "")+" "+news.getString("time").replace("\"", "")+" "+news.getString("location").replace("\"", ""));
 					noteArrayList.add(content3);
 					feedUrl2.add(content3);
 				}

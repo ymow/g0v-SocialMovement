@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:textSize="18sp" 
     android:textColor="@color/white"
-    android:lineSpacingMultiplier="2">
-    
-
-</TextView>
+    android:lineSpacingMultiplier="2"> -->
+    <com.Social.Movement3.CustomText xmlns:android="http://schemas.android.com/apk/res/android"
+ 
+    android:fontFamily="LiHeiProPC.ttf"
+    android:id="@+id/LiveNoteListText"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="8sp"
+    android:paddingBottom="8sp"
+        android:paddingLeft="8sp"
+    android:paddingRight="8sp"
+    android:textSize="16sp" 
+    android:textColor="@color/white"
+    android:lineSpacingMultiplier="1.4"/>    
+ 

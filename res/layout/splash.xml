@@ -5,16 +5,18 @@
     android:background="@color/black"
     android:orientation="vertical" >
 
- 	<TextView
+ 	<com.Social.Movement3.CustomText
+ 
  	    android:id="@+id/CongressOccupied"
  	    android:layout_width="wrap_content"
  	    android:layout_height="wrap_content"
  	    android:layout_alignParentTop="true"
  	    android:layout_centerHorizontal="true"
- 	    android:layout_marginTop="224sp"
+ 	    android:layout_marginTop="193dp"
+ 	    android:fontFamily="NoticiaText-Bold.ttf"
  	    android:text="Congress Occupied"
- 	    android:textAppearance="?android:attr/textAppearanceLarge" />
-
+ 	    android:textAppearance="?android:attr/textAppearanceLarge"
+ 	    android:textSize="32sp" />
  	<TextView
  	    android:id="@+id/splashtime"
  	    android:layout_width="wrap_content"
